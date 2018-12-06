@@ -172,7 +172,7 @@ Herzlich Willkommen!
 ## 2. Arduino Hardware / Software
 
 {{0-1}}
-**2.1 Arduino Hardware**
+**2.1 Arduino Hardwarefamilie**
 
 {{0-1}}
 ![Cross-Compilation](images/ArduinoGallery.jpg "Cross-Compilation")<!-- width="70%" -->
