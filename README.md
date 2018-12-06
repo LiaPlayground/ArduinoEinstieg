@@ -136,7 +136,7 @@ Sebastian Zug, Technische Universität Bergakademie Freiberg
 
 Herzlich Willkommen!
 
-##1. Einführung
+## 1. Einführung
 
 + Was heißt das eigentlich "Eingebettetes System"
 
@@ -167,7 +167,7 @@ Herzlich Willkommen!
 
 [^1] nach Wikipedia "Eingebettete Systeme"
 
-##2. Arduino Hardware / Software
+## 2. Arduino Hardware / Software
 
 {{0-1}}
 **2.1 Arduino Hardware**
