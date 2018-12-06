@@ -153,7 +153,8 @@ Herzlich Willkommen!
   > geschrieben Quellcode so übersetzt, dass sie von Maschinen verstanden
   > werden können.
 
-  ![Cross-Compilation](images/CrossCompile.png "Cross-Compilation")<!-- width="80%" -->
+  ![Cross-Compilation](images/CrossCompile.png "Cross-Compilation")<!-- width="80%" --> [^2]
+
 
 + Arduino Idee
 
@@ -166,6 +167,7 @@ Herzlich Willkommen!
 
 
 [^1] nach Wikipedia "Eingebettete Systeme"
+[^2] http://21stdigitalhome.blogspot.com/2016/03/cross-compiling-compile-c-programs-on.html
 
 ##2. Arduino Hardware / Software
 
@@ -173,7 +175,7 @@ Herzlich Willkommen!
 **2.1 Arduino Hardware**
 
 {{0-1}}
-![Cross-Compilation](images/ArduinoGallery.jpg "Cross-Compilation")<!-- width="80%" -->
+![Cross-Compilation](images/ArduinoGallery.jpg "Cross-Compilation")<!-- width="70%" -->
 [^1]
 
 {{1}}
