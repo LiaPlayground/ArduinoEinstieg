@@ -133,8 +133,9 @@ Sebastian Zug, Technische Universität Bergakademie Freiberg
 
 ![Welcome](images/WorkingDesk.jpg "Experiments")<!-- width="80%" -->
 
-
 Herzlich Willkommen!
+
+> Die interaktive Ansicht dieses Kurses ist unter folgendem [Link](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/ArduinoEinstieg/master/Course_00.md#1) verfügbar.
 
 ## 1. Einführung
 

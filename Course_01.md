@@ -133,6 +133,7 @@ Sebastian Zug, Technische Universität Bergakademie Freiberg
 
 ![Welcome](images/WorkingDesk.jpg "Experiments")<!-- width="80%" -->
 
+> Die interaktive Ansicht dieses Kurses ist unter folgendem [Link](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/ArduinoEinstieg/master/Course_01.md#1) verfügbar.
 
 Herzlich Willkommen!
 
@@ -264,6 +265,7 @@ Und wie gehen wir bei der Fehlersuche vor?
 4. Fehlermeldung aufmerksam lesen
 5. ggf. Hypothesen aufstellen und prüfen
 
+> **Aufgabe:** Debuggen Sie den obrigen Quellcode!.
 
 ## 3. Unsere "Schatzkiste"
 
@@ -333,8 +335,7 @@ void loop() {
 *Langweilig ... ! Ich möchte was sehen!*
 
 > **Aufgabe:** Verbinden Sie das Display mit dem Board entsprechend dem
-> Beschaltungsplan. Lassen Sie den Joystick auch noch aktiv, den brauchen Sie
-> gleich wieder.
+> Beschaltungsplan.
 
 [https://www.mangolabs.de/portfolio-item/lcd-i2c-display-2x16/#getting-started](https://www.mangolabs.de/portfolio-item/lcd-i2c-display-2x16/#getting-started)
 
@@ -345,7 +346,8 @@ installieren. Informieren Sie sich, wie dies umzusetzen ist "How to install a li
 #include <Wire.h>
 #include <LiquidCrystal_PCF8574.h>
 
-int lcdi2c = 0x27;
+int lcdi2c = 0x27; // <- Hart eingecodete Adresse, die nur für unser
+                   // Beispiel funktioniert, vgl. Datenblatt
 
 void setup()
 {
@@ -362,11 +364,28 @@ void setup()
 void loop()
 {}
 ```
+<!--
+style="width: 100%; max-width: 460px; display: block; margin-left: auto; margin-right: auto;"
+-->
+````
+    0                             15
+    0 1 2 3 4 5 6 7 8 9 A B C D E F
+   ╔═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╗
+ 0 ║G│y│m│n│a│s│i│u│m│ │D│o│k│i│ │ ║
+   ╟─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─╢
+ 1 ║2│.│C│o│d│i│n│g│ │N│i│g│h│t│ │ ║
+   ╚═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╝
+````
 
+
+
+{{1}}
 Welche Methoden stehen denn für das Display bereit?
 
- 1. Cursor Konfiguration
+{{1}}
+** 1. Cursor Konfiguration**
 
+{{1}}
 | Name               | Bedeutung                       |
 |:-------------------|:--------------------------------|
 |  void noBlink();   |                                 |
@@ -375,8 +394,11 @@ Welche Methoden stehen denn für das Display bereit?
 |  void cursor();    | Aktiviert den Cursor            |
 |  void setCursor();    | Bewege den Cursor an eine Position           |
 
- 2. Bewegung des Cursors
 
+{{1}}
+** 2. Bewegung des Cursors **
+
+{{1}}
 | Name               | Bedeutung                       |
 |:-------------------|:--------------------------------|
 |  void scrollDisplayLeft(); | Verschiebt den Inhalt um ein Feld nach links |
@@ -386,20 +408,40 @@ Welche Methoden stehen denn für das Display bereit?
 |  void autoscroll();   | Die Darstellung verschiebt sich automatisch mit dem erzeugen eines neuen Zeichens `lcd.print('A')` |
 |  void noAutoscroll(); | ... aux |
 
- 3. Bewegung des Cursors
 
+{{1}}
+** 3. Bewegung des Cursors**
+
+{{1}}
 | Name               | Bedeutung                       |
 |:-------------------|:--------------------------------|
 |  void print(); | Schreibt Text auf das Display, startet an der Stelle des Cursors |
 |  void write(); | Schreibt ein Zeichen auf das Display |
 |  void clear(); | Löschen des gesamten Displays |
 
-{{1}} Was ergeben folgende Codefragmenet
+{{2}}
+**Welche Ausgaben generieren folgende Codefragmente?**
 
+{{2}}
 ```c
 lcd.setCursor(5, 1);
 lcd.print("Gymnasium Doki");
 ```
+
+{{2}}
+<!--
+style="width: 100%; max-width: 460px; display: block; margin-left: auto; margin-right: auto;"
+-->
+````
+    0                             15
+    0 1 2 3 4 5 6 7 8 9 A B C D E F
+   ╔═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╗
+ 0 ║ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ ║
+   ╟─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─╢
+ 1 ║ │ │ │ │ │G│y│m│n│a│s│i│u│m│ │D║
+   ╚═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╝
+````
+
 
 {{2}}
 ```c
@@ -409,9 +451,22 @@ int number = s.length();
 for (int i = 0; i< number; i++)
   lcd.write(s[i]);
 ```
-   Das ist ein Te
 
-{{3}}
+{{2}}
+<!--
+style="width: 100%; max-width: 460px; display: block; margin-left: auto; margin-right: auto;"
+-->
+````
+    0                             15
+    0 1 2 3 4 5 6 7 8 9 A B C D E F
+   ╔═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╗
+ 0 ║ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ ║
+   ╟─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─╢
+ 1 ║ │ │D│a│s│ │i│s│t│ │e│i│n│ │T│e║
+   ╚═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╝
+````
+
+{{2}}
 ```c
 lcd.setCursor(15, 1);
 lcd.rightToLeft();
@@ -421,9 +476,22 @@ for (int i = 0; i< number; i++)
   lcd.write(s[i]);
 ```
 
-tseT nie tsi saD
+{{2}}
+<!--
+style="width: 100%; max-width: 460px; display: block; margin-left: auto; margin-right: auto;"
+-->
+````
+    0                             15
+    0 1 2 3 4 5 6 7 8 9 A B C D E F
+   ╔═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╗
+ 0 ║ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ ║
+   ╟─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─╢
+ 1 ║t│s│e│T│ │n│i│e│ │t│s│i│ │s│a│D║
+   ╚═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╝
+````
 
-{{4}}
+
+{{2}}
 ```c
 lcd.setCursor(15, 1);
 lcd.autoscroll();
@@ -434,11 +502,24 @@ for (int i = 0; i< number; i++){
   delay(1000);
 }
 ```
+{{2}}
+<!--
+style="width: 100%; max-width: 460px; display: block; margin-left: auto; margin-right: auto;"
+-->
+````
+    0                             15
+    0 1 2 3 4 5 6 7 8 9 A B C D E F
+   ╔═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╗
+ 0 ║ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ ║
+   ╟─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─╢
+ 1 ║ │ │ │ │ │ │ │ │ │ │ │ │D│a│s│ ║
+   ╚═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╝
+````
 
-{{5}}
+{{3}}
 > **Aufgabe:** Lassen Sie auf dem Cursor die Namen der Kursteilnehmer durchlaufen.
 
-{{5}}
+{{3}}
 ```c                   ShowNames.ino
 #include <Wire.h>
 #include <LiquidCrystal_PCF8574.h>
@@ -466,6 +547,7 @@ void loop()
 ```
 
 ### 3c. Und jetzt alles zusammmen
+
 
 > **Aufgabe:** Geben Sie auf dem Display die aktuelle Cursor-Position des
 > Joysticks aus.
@@ -510,3 +592,6 @@ void loop() {
   delay(100);
 }
 ```
+
+{{2}}
+> **Aufgabe:** Implementieren Sie eine Anwnedung, die es erlaubt, sich innerhalb der Liste von Namen zu bewegen.
