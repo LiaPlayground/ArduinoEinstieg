@@ -123,11 +123,12 @@ $.ajax ({
 
 -->
 
-# Coding-Night 2018
+# Frühjahrsakademie 2019
 
-**Evangelisches Gymnasium Doberlug-Kirchhain, 7. Dezember 2018**
+**Einstieg Mikrocontrollerprogrammierung**
 
-Sebastian Zug, Technische Universität Bergakademie Freiberg
+Sebastian Zug, Georg Jäger
+Technische Universität Bergakademie Freiberg
 
 ------------------------------
 
@@ -137,50 +138,65 @@ Herzlich Willkommen!
 
 > Die interaktive Ansicht dieses Kurses ist unter folgendem [Link](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/ArduinoEinstieg/master/Course_00.md#1) verfügbar.
 
+https://github.com/liaScript/ArduinoEinstieg/blob/master/Course_00.md
+
+
+## 0. Warum Informatik?
+{{0-1}}
+![Welcome](images/PassatMitInnenleben.png "Motivation")<!-- width="40%" -->
+
+{{0-1}}
+> _"Ein Auto ist ein Computer\[netzwerk\] mit vier Rädern"_ (Quelle gesucht)
+
+
+{{1-2}}
+... und warum Freiberg?
+
+{{1-2}}
+![Welcome](images/AInfFreiberg.jpeg "Überblick")<!-- width="80%" -->
+
+{{1-2}}
+Link zu den Webseiten des Institutes: https://tu-freiberg.de/fakult1/inf
+
 ## 1. Einführung
 
-+ Was heißt das eigentlich "Eingebettetes System"
++ Was heißt das eigentlich "Eingebettetes System"?
 
-  > ... ein elektronischer Rechner ..., der in einen technischen Kontext
-  > eingebunden ist. Dabei übernimmt der (Kleinst-)Rechner entweder
-  > Überwachungs-, Steuerungs- oder Regelfunktionen ... weitestgehend unsichtbar
-  > für den Benutzer .. [^1].
+{{1-2}}
+> ... ein elektronischer Rechner ..., der in einen technischen Kontext
+> eingebunden ist. Dabei übernimmt der (Kleinst-)Rechner entweder
+> Überwachungs-, Steuerungs- oder Regelfunktionen ... weitestgehend unsichtbar
+> für den Benutzer .. \[nach Wikipedia "Eingebettete Systeme"\].
 
-  Beispiele: Kaffeemaschine, Türöffner, autonomes Auto
++ Wie programmiere ich einen Mikrocontroller?
 
-+ Programmiervorgang für Mikrocontroller
+{{2-3}}
+> Compiler wird eine Software genannt, die einen in einer Programmiersprache
+> geschrieben Quellcode so übersetzt, dass sie von Maschinen verstanden
+> werden können.
 
-  > Compiler wird eine Software genannt, die einen in einer Programmiersprache
-  > geschrieben Quellcode so übersetzt, dass sie von Maschinen verstanden
-  > werden können.
++ Was ist das Arduino Projekt?
 
-  ![Cross-Compilation](images/CrossCompile.png "Cross-Compilation")<!-- width="80%" --> [^2]
+{{3}}
+> Arduino ist eine aus Soft- und Hardware bestehende
+> Physical-Computing-Plattform. Beide Komponenten sind im Sinne von Open
+> Source quelloffen. Die Hardware besteht aus einem einfachen E/A-Board mit
+> einem Mikrocontroller und analogen und digitalen Ein- und Ausgängen.
 
-
-+ Arduino Idee
-
-  > Arduino ist eine aus Soft- und Hardware bestehende
-  > Physical-Computing-Plattform. Beide Komponenten sind im Sinne von Open
-  > Source quelloffen. Die Hardware besteht aus einem einfachen E/A-Board mit
-  > einem Mikrocontroller und analogen und digitalen Ein- und Ausgängen.
-
+{{3}}
   https://www.arduino.cc/
 
+{{3}}
+  ![Arduino Hardwarefamilie](images/ArduinoGallery.jpg "ArduinoFamilie")<!-- width="70%" -->
+  [^3]
 
-[^1] nach Wikipedia "Eingebettete Systeme"
-[^2] http://21stdigitalhome.blogspot.com/2016/03/cross-compiling-compile-c-programs-on.html
+{{3}}
+[^3] aus entsprechendem Artikel "Spiegel Online" http://www.spiegel.de/netzwelt/gadgets/arduino-erklaert-das-kann-der-microcontroller-a-1105328.html
 
-## 2. Arduino Hardware / Software
 
-{{0-1}}
-**2.1 Arduino Hardwarefamilie**
+## 2. Arduino Programmierung
 
-{{0-1}}
-![Cross-Compilation](images/ArduinoGallery.jpg "Cross-Compilation")<!-- width="70%" -->
-[^1]
-
-{{1}}
-**2.2 Aufbau eines Arduino-Programmes**
+**2.1 Aufbau eines Arduino-Programmes**
 
 Arduino nutzt eine C/C++ Semantik für die Programmierung, die folgende
 Grundelemente bedient
@@ -194,28 +210,36 @@ Grundelemente bedient
 
 {{1}}
 ```c
+const int ledPin = 13;
+
 // the setup function runs once when you press reset or power the board
 void setup() {
-  // initialize digital pin LED_BUILTIN as an output.
-  pinMode(LED_BUILTIN, OUTPUT);
+  // initialize digital pin ledPin as an output.
+  pinMode(ledPin, OUTPUT);
 }
 
 // the loop function runs over and over again forever
 void loop() {
-  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(1000);                       // wait for a second
-  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-  delay(1000);                       // wait for a second
+  digitalWrite(ledPin, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(1000);                  // wait for a second
+  digitalWrite(ledPin, LOW);    // turn the LED off by making the voltage LOW
+  delay(1000);                  // wait for a second
 }
 ```
 
 {{2}}
-**2.3 Arduino IDE**
+**2.2 Arduino IDE**
 
 {{2}}
 ![Bildtext](images/ArduinoIDE_Screenshot.jpg "Arduino IDE")<!-- width="80%" -->
 
-[^1] aus entsprechendem Artikel "Spiegel Online" http://www.spiegel.de/netzwelt/gadgets/arduino-erklaert-das-kann-der-microcontroller-a-1105328.html
+{{2}}
+Wichtige Grundeinstellungen:
+
+{{2}}
++ Richtigen Port für den Programmiervorgang auswählen (Tools -> Port)
++ Richtigen Controller auswählen (Tools -> Board)
++ Richtige Baudrate für die Serielle Schnittstellen
 
 ## 3. Aufgabenkomplexe
 
@@ -231,17 +255,23 @@ void loop() {
     + englisch https://www.arduino.cc/reference/en/
 
 
-
 ### 3a. Serielle Schnittstelle
 
--> Hello World Programm (Serielle Schnittstelle und LED anschalten)
+{{0-3}}
+<!--
+style="height: 80px; display: block; margin-right: auto;"
+-->
+````
+-> Demo: Hello World Programm
+         (Serielle Schnittstelle und LED anschalten)
+````
 
-{{1}}
+{{1-3}}
 > **Aufgabe:** Schreiben Sie einen Code, der die Zahlen von 0 bis 9 über die
 > serielle Schnittstelle ausgibt.
 
-{{2}}
-```c
+{{2-3}}
+```c      PrintNumbers.ino
 // Loesung
 void setup() {
   Serial.begin(57600);
@@ -254,15 +284,20 @@ void loop() {
 }
 ```
 
-{{2}}
--> Vorführung Erfassen von Zeichen
+{{3-6}}
+<!--
+style="height: 60px; display: block; margin-right: auto;"
+-->
+````
+-> Demo:  Vorführung Erfassen von Zeichen
+````
 
-{{3}}
+{{4-6}}
 > **Aufgabe:** Erweitern Sie den Code, so dass wir die LED über 'A' an- und
 > 'B' ausschalten können.
 
-{{4}}
-```c
+{{5-6}}
+```c      ControlLed.ino
 // Loesung
 void loop() {
   if (Serial.available() > 0) {
@@ -290,7 +325,7 @@ void loop() {
 Es wird ernst! Wir müssen den Taster elektrisch mit dem Board verbinden. Anweisungen unter ... [https://www.mangolabs.de/portfolio-item/micro-switches/](https://www.mangolabs.de/portfolio-item/micro-switches/)
 
 {{1}}
-```c
+```c               ActivateLed.ino
 // Loesung
 void loop() {
   // read the state of the pushbutton value:
@@ -320,7 +355,7 @@ ACHTUNG: Sie müssen für die Integration des Sensors noch die Bibliothek
 den Arduino Foren zur Frage "How to install a library for Arduino?"
 
 {{1}}
-```c
+```c               Sonar.ino
 // Loesung
 #include <NewPing.h>
 
@@ -354,16 +389,26 @@ void loop() {
 
 ### 3d. Es wird bunt
 
-Integration der Mehrfarben LED als Erweiterung der Ausgabe
+Integration einer Mehrfarben LED als Erweiterung der Ausgabe
+
+![RGB](images/rgb-farbmodell.png "RGB")<!-- width="60%" -->   [^1]
+
+[^1] https://www.informatikzentrale.de/rgb-farbmodell.html
+
 https://www.mangolabs.de/portfolio-item/rgb-led-2/
 
--> Vorführung Mehrfarben LED
+<!--
+style="height: 60px; display: block; margin-right: auto;"
+-->
+````
+-> Demo:  Demo mit der Mehrfarben Led
+````
 
-```c
+```c     LedDifferentColors.ino
 // Methoden aus dem Lösungsvorschlag der MangoLabs
-const int redPin = 10;
-const int greenPin = 9;
-const int bluePin = 8;
+const int redPin = 11;
+const int greenPin = 10;
+const int bluePin = 9;
 
 void setColourRgb(unsigned int red, unsigned int green, unsigned int blue) {
   analogWrite(redPin, red);
@@ -377,14 +422,7 @@ void setup() {
 }
 
 void loop() {
-  unsigned int rgbColour[3];
-
-  // Start off with red.
-  rgbColour[0] = 255;
-  rgbColour[1] = 255;
-  rgbColour[2] = 255;
-
-  setColourRgb(rgbColour[0], rgbColour[1], rgbColour[2]);
+  setColourRgb(255, 0, 0);
   delay(1000);
 }
 ```
@@ -392,7 +430,7 @@ void loop() {
 > **Aufgabe:** Wechseln Sie die Farben der LED in Abhängigkeit von der Entfernung
 
 {{1}}
-```c
+```c         ViewDistance.ino
 #include <NewPing.h>
 
 #define TRIGGER_PIN  12  // Arduino pin tied to trigger pin on the ultrasonic sensor.
@@ -438,6 +476,7 @@ void loop() {
   }
 }
 ```
+
 
 ### 3e. Servomotor als Ausgabe
 
