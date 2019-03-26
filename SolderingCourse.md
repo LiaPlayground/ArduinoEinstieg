@@ -20,7 +20,7 @@ Sebastian Zug, Technische Universität Bergakademie Freiberg
 
 Herzlich Willkommen!
 
-> Die interaktive Ansicht dieses Kurses ist unter folgendem [Link](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/FOSDEM/master/Course_00.md#1) verfügbar.
+> Die interaktive Ansicht dieses Kurses ist unter folgendem [Link](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/ArduinoEinstieg/master/SolderingCourse.md#1) verfügbar.
 
 ## 0. Motivation
 
