@@ -15,7 +15,7 @@ import: https://raw.githubusercontent.com/LiaTemplates/WebDev/master/README.md
 
 **Einstieg Mikrocontrollerprogrammierung**
 
-Sebastian Zug, Georg Jäger
+Prof. Dr. Sebastian Zug,
 Technische Universität Bergakademie Freiberg
 
 ------------------------------
