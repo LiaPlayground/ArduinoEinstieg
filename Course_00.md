@@ -11,9 +11,9 @@ import: https://raw.githubusercontent.com/LiaTemplates/WebDev/master/README.md
 -->
 
 
-# Bernhard-von-Cotta Gymnasium Brand-Erbisdorf
+# Schüleruniversität 2019
 
-**Einstieg Mikrocontrollerprogrammierung**
+**Programmierung eingebetteter Systeme**
 
 Prof. Dr. Sebastian Zug,
 Technische Universität Bergakademie Freiberg
@@ -84,8 +84,6 @@ Link zu den Webseiten des Institutes: https://tu-freiberg.de/fakult1/inf
 
 ## 2. Arduino Programmierung
 
-**2.1 Aufbau eines Arduino-Programmes**
-
 Arduino nutzt eine C/C++ Semantik für die Programmierung, die folgende
 Grundelemente bedient
 
@@ -96,7 +94,10 @@ Grundelemente bedient
 
 ![Cheat-Sheet](images/Arduino-Cheat-Sheet_v0.1.png "Cheat-Sheet")<!-- width="80%" -->
 
-{{1}}
+### 2.1 Aufbau eines Arduino-Programmes
+
+Jedes Arduinoprogramm umfasst 2 grundlegende Funktionen `setup()` und `loop()`.
+
 ```c
 const int ledPin = 13;
 
@@ -115,19 +116,37 @@ void loop() {
 }
 ```
 
-{{2}}
-**2.2 Arduino IDE**
+### 2.2 Arduino IDE
 
-{{2}}
 ![Bildtext](images/ArduinoIDE_Screenshot.jpg "Arduino IDE")<!-- width="80%" -->
 
-{{2}}
 Wichtige Grundeinstellungen:
 
-{{2}}
 + Richtigen Port für den Programmiervorgang auswählen (Tools -> Port)
 + Richtigen Controller auswählen (Tools -> Board)
 + Richtige Baudrate für die Serielle Schnittstellen
+
+### 2.3 Hello World
+
+*Und jetzt sind Sie dran!*
+
+Laden Sie das Beispielprogramm "Blink" in Ihren Editor:
+
+Datei -> Beispiele -> Basics -> Blink
+
+Kompilieren und flashen Sie das Programm! Wichtige Tastaturbefehle sind dabei
+
+| Tastenkombination | Bedeutung                |
+| ----------------- | ------------------------ |
+| Strg-R            | Kompilieren (Ve**R**ify) |
+| Strg-U            | Flashend (**U**pload)    |
+| Strg-T            | Code korrekt einrücken   |
+| Strg-Shift-M      | Seriellen Monitor öffnen |
+| Strg-L            | Cursor auf Zeile setzen  |
+
+{{1}}
+> **Aufgabe:** Schreiben Sie einen Code, der das *SOS* Morsesignal über die
+> Led ausgibt!
 
 ## 3. Aufgabenkomplexe
 
