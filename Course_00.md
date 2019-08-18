@@ -8,6 +8,7 @@ narrator: Deutsch Female
 
 import: https://raw.githubusercontent.com/LiaTemplates/Rextester/master/README.md
 import: https://raw.githubusercontent.com/LiaTemplates/WebDev/master/README.md
+import: https://raw.githubusercontent.com/LiaTemplates/NetSwarm-Simulator/master/README.md
 -->
 
 
@@ -115,6 +116,7 @@ void loop() {
   delay(1000);                  // wait for a second
 }
 ```
+@NetSwarm.single_loop
 
 ### 2.2 Arduino IDE
 
