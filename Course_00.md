@@ -12,7 +12,7 @@ import: https://raw.githubusercontent.com/LiaTemplates/NetSwarm-Simulator/master
 -->
 
 
-# Schüleruniversität 2019
+# Arduino Einführung
 
 **Programmierung eingebetteter Systeme**
 
@@ -23,7 +23,7 @@ Technische Universität Bergakademie Freiberg
 
 ![Welcome](images/WorkingDesk.jpg "Experiments")<!-- width="80%" -->
 
-Herzlich Willkommen!
+<h2>Herzlich Willkommen!</h2>
 
 > Die interaktive Ansicht dieses Kurses ist unter folgendem [Link](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/ArduinoEinstieg/master/Course_00.md#1) verfügbar.
 
@@ -31,57 +31,62 @@ https://github.com/liaScript/ArduinoEinstieg/blob/master/Course_00.md
 
 
 ## 0. Warum Informatik?
-{{0-1}}
+                                {{0-1}}
+*******************************************************************************
 ![Welcome](images/PassatMitInnenleben.png "Motivation")<!-- width="40%" -->
 
-{{0-1}}
+
 > _"Ein Auto ist ein Computer\[netzwerk\] mit vier Rädern"_ (Quelle gesucht)
+*******************************************************************************
 
-
-{{1-2}}
+                                {{1-2}}
+*******************************************************************************
 ... und warum Freiberg?
 
-{{1-2}}
 ![Welcome](images/AInfFreiberg.jpeg "Überblick")<!-- width="80%" -->
 
-{{1-2}}
 Link zu den Webseiten des Institutes: https://tu-freiberg.de/fakult1/inf
+
+*******************************************************************************
 
 ## 1. Einführung
 
-+ Was heißt das eigentlich "Eingebettetes System"?
+**Was heißt das eigentlich "Eingebettetes System"?**
 
-{{1-2}}
+                              {{1-2}}
+*******************************************************************************
 > ... ein elektronischer Rechner ..., der in einen technischen Kontext
 > eingebunden ist. Dabei übernimmt der (Kleinst-)Rechner entweder
 > Überwachungs-, Steuerungs- oder Regelfunktionen ... weitestgehend unsichtbar
 > für den Benutzer .. \[nach Wikipedia "Eingebettete Systeme"\].
+*******************************************************************************
 
-+ Wie programmiere ich einen Mikrocontroller?
+**Wie programmiere ich einen Mikrocontroller?**
 
-{{2-3}}
+                              {{2-3}}
+*******************************************************************************
 > Compiler wird eine Software genannt, die einen in einer Programmiersprache
 > geschrieben Quellcode so übersetzt, dass sie von Maschinen verstanden
 > werden können.
+*******************************************************************************
 
-+ Was ist das Arduino Projekt?
+**Was ist das Arduino Projekt?**
 
-{{3}}
+                                 {{3}}
+*******************************************************************************
 > Arduino ist eine aus Soft- und Hardware bestehende
 > Physical-Computing-Plattform. Beide Komponenten sind im Sinne von Open
 > Source quelloffen. Die Hardware besteht aus einem einfachen E/A-Board mit
 > einem Mikrocontroller und analogen und digitalen Ein- und Ausgängen.
 
-{{3}}
   https://www.arduino.cc/
 
-{{3}}
   ![Arduino Hardwarefamilie](images/ArduinoGallery.jpg "ArduinoFamilie")<!-- width="70%" -->
   [^3]
 
-{{3}}
 [^3] aus entsprechendem Artikel "Spiegel Online" http://www.spiegel.de/netzwelt/gadgets/arduino-erklaert-das-kann-der-microcontroller-a-1105328.html
 
+*******************************************************************************
 
 ## 2. Arduino Programmierung
 
@@ -94,6 +99,8 @@ Grundelemente bedient
 + Kommentare werden durch `//` eingeleitet
 
 ![Cheat-Sheet](images/Arduino-Cheat-Sheet_v0.1.png "Cheat-Sheet")<!-- width="80%" -->
+
+Unter 2.4 folgen einige Beispiele für den Gebrauch der Schleifen und Verzweigungen.
 
 ### 2.1 Aufbau eines Arduino-Programmes
 
@@ -116,7 +123,6 @@ void loop() {
   delay(1000);                  // wait for a second
 }
 ```
-@NetSwarm.single_loop
 
 ### 2.2 Arduino IDE
 
@@ -146,11 +152,154 @@ Kompilieren und flashen Sie das Programm! Wichtige Tastaturbefehle sind dabei
 | Strg-Shift-M      | Seriellen Monitor öffnen |
 | Strg-L            | Cursor auf Zeile setzen  |
 
-{{1}}
+### 2.4 C++ Basiskonstrukte und die Serielle Schnittstelle
+
+                              {{0-1}}
+*******************************************************************************
+
+Was fehlt? Ich möchte irgendwie in den Rechner schauen können :-)
+
+Die Serielle Schnittstelle (häufig auch als UART) bezeichnet ermöglicht das
+Versenden und den Empfang von Textnachrichten. Damit können Sie zum Beispiel
+Messwerte ausgeben oder das Erreichen bestimmter Programmpositionen anzeigen.
+
+Die folgenden Beispiele vermitteln grundlegende Programmierkonstrukte in C++.
+Anhand des NetSwarm Simulator können diese ausgeführt werden.  Achtung, bis auf
+die Serielle Schnittstelle können keine  weiteren Funktionalitäten genutzt
+werden!
+
+```c
+void setup() {
+  Serial.begin(9600);
+  Serial.println("Hello World");
+}
+
+void loop() {
+}
+```
+@NetSwarm.single_loop
+
+Arduino kennt zwei Varianten der Ausgabe mit `print` - das einfache `print` und `println`. Welchen Unterschied vermuten Sie?
+*******************************************************************************
+
+                              {{1-2}}
+*******************************************************************************
+
+**Schleifen**
+
+Was müssen wir tuen, um die Zahlen von 1 bis 10 auf dem Terminal anzuzeigen?
+
+```c
+void setup() {
+  Serial.begin(9600);
+  int counter = 0;
+  for (int i = 0; i < 10; i++){
+    Serial.println(counter);  
+    counter = counter + 1;
+  }
+}
+
+void loop() {
+}
+```
+@NetSwarm.single_loop
+
+Welche "Einsparmöglichkeiten" sehen Sie als erfahrener Programmierer in dem Beispiel? Wie kann der Code, mit der gleichen Ausgabe kürzer gestaltet werden?
+*******************************************************************************
+
+                              {{2-3}}
+*******************************************************************************
+
+**Verzweigungen**
+
+Verzweigungen folgen dem Muster
+
+```c
+if (Bedingung) {
+  // Anweisungen
+}
+else{               
+  // Anweisungen       
+}                      
+```
+
+wobei der `else` Abschnitt optional ist.
+
+```c
+void setup() {
+  Serial.begin(9600);
+  float value = 5.234;
+  Serial.print(value);
+  if (value > 10){
+    Serial.println(" - Der Wert ist größer als 10!");
+  }else{
+    Serial.println(" - Der Wert ist kleiner als 10!");
+  }
+}
+
+void loop() {
+}
+```
+@NetSwarm.single_loop
+
+*******************************************************************************
+
+
+                              {{3-4}}
+*******************************************************************************
+
+Bedingungen werden dabei wie folgt formuliert:
+
+```c
+void setup() {
+  Serial.begin(9600);
+  int a = 2;
+  if (a == 2) {Serial.println("a ist gleich zwei!");}
+  if (a <= 5) {Serial.println("a ist kleiner oder gleich fünf!");}
+  if (a != 3) {Serial.println("a ist ungleich drei!");}
+  char b = 'g';
+  if (b == 'z') {Serial.println("In b ist ein z gespeichert!");}
+  else {Serial.println("In b ist kein z gespeichert!");}
+}
+
+void loop() {
+}
+```
+@NetSwarm.single_loop
+
+Für die Ausgabe von komplexeren, vorformatierten Ausdrücken können Sie auf einen
+Befehl aus der C++ Standard-Bibliothek zurückgreifen `sprintf`
+
+Eine anschauliche Dokumentation findet sich unter: [link](https://arduinobasics.blogspot.com/2019/05/sprintf-function.html)
+
+*******************************************************************************
+
+## 3. Einstiegsübung
+
 > **Aufgabe:** Schreiben Sie einen Code, der das *SOS* Morsesignal über die
 > Led ausgibt!
 
-## 3. Aufgabenkomplexe
+Welche Anpassungen sind dafür notwendig?
+
+```c
+const int ledPin = 13;
+
+// the setup function runs once when you press reset or power the board
+void setup() {
+  // initialize digital pin ledPin as an output.
+  pinMode(ledPin, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  digitalWrite(ledPin, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(1000);                  // wait for a second
+  digitalWrite(ledPin, LOW);    // turn the LED off by making the voltage LOW
+  delay(1000);                  // wait for a second
+}
+```
+
+## 4. Aufgabenkomplexe
 
 ![MangoLabsSet](images/MangoLabsSet.jpg "MangoLabsSet")<!-- width="80%" -->
 
