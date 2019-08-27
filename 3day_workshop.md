@@ -113,6 +113,12 @@ eigene Daten. Das Messnetz des DWD besteht aus 178 hauptamtlichen Stationen, der
 
 ## 4. Wie wollen wir vorgehen?
 
+                  {{0}}
+***********************************************************************
+
+**Gruppe I - Der Mikrocontroller gibt die Daten verschiedener Umweltsensoren auf der serielle Schnittstelle aus, wir kopieren diese in eine Tabellenkalkulation und werten sie aus.**
+
+
 **Sprint-Ziele - Gruppe I**
 
 + Dienstag Nachmittag: Auslesen des Helligkeitssensors und des Wettersensors mit Ausgabe auf dem Bildschirm
@@ -122,6 +128,13 @@ eigene Daten. Das Messnetz des DWD besteht aus 178 hauptamtlichen Stationen, der
 + Mittwoch Nachmittag: Testen der Aufzeichnung, Vorverarbeitung der Daten mit Excel, Start der 24 Stunden Messung
 
 + Donnerstag: Vorbereitung eines Diagramms, dass die Abweichung der Daten illustriert
+
+***********************************************************************
+
+                  {{1}}
+***********************************************************************
+
+**Gruppe II - Wir realisieren mit redundanten Sensoren einen Cloud-basierten Wetterdienst mit einer zugehörigen App**
 
 **Sprint-Ziele - Gruppe II**
 
@@ -133,7 +146,14 @@ eigene Daten. Das Messnetz des DWD besteht aus 178 hauptamtlichen Stationen, der
 
 + Donnerstag: Auswertung der Daten, Visualisierung unter Python/ Matlab
 
+*********************************************************************
+
+                  {{2}}
+***********************************************************************
+
 ![Vorgehen](images/VorhabenWfF.png)<!-- width="100%" -->
+
+**********************************************************************
 
 # Gruppe I - Dienstag
 
@@ -625,12 +645,11 @@ print "Program has ended"
 
 > **Aufgabe 4:** Aktivieren Sie den WLAN Kanal des Arduino Zero!
 
-**Achtung:** Bauen Sie die Verbindung immer erst auf, wenn Sie Daten senden wollen. Eine permanente Verbindung mit dem Netz kostet Strom! Zudem geht der WLAN Controller irgendwann in einen Stand-By Mode! Ein Beispielprogramm finden Sie unter:
+**Achtung:** Bauen Sie die Verbindung immer erst auf, wenn Sie Daten senden wollen. Eine permanente Verbindung mit dem Netz kostet Strom! Zudem geht der WLAN Controller irgendwann in einen Stand-By Mode!
 
-Link fehlt!
+Ein Beispielprogramm finden Sie unter:
 
-
-
+https://github.com/liaScript/ArduinoEinstieg/tree/master/CodeExamples/WeekForFuture
 
 
 # Gruppe II - Mittwoch
