@@ -6,6 +6,8 @@ version:  0.0.1
 language: de
 narrator: Deutsch Female
 
+link:     https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css
+
 import: https://raw.githubusercontent.com/LiaTemplates/Rextester/master/README.md
 import: https://raw.githubusercontent.com/LiaTemplates/WebDev/master/README.md
 import: https://raw.githubusercontent.com/LiaTemplates/NetSwarm-Simulator/master/README.md
@@ -14,7 +16,7 @@ import: https://raw.githubusercontent.com/LiaTemplates/NetSwarm-Simulator/master
 
 # Arduino Einführung
 
-**Programmierung eingebetteter Systeme**
+**Eingebette Systeme**
 
 Prof. Dr. Sebastian Zug,
 Technische Universität Bergakademie Freiberg
@@ -30,26 +32,9 @@ Technische Universität Bergakademie Freiberg
 https://github.com/liaScript/ArduinoEinstieg/blob/master/Course_00.md
 
 
-## 0. Warum Informatik?
-                                {{0-1}}
-*******************************************************************************
-![Welcome](images/PassatMitInnenleben.png "Motivation")<!-- width="40%" -->
-
-
-> _"Ein Auto ist ein Computer\[netzwerk\] mit vier Rädern"_ (Quelle gesucht)
-*******************************************************************************
-
-                                {{1-2}}
-*******************************************************************************
-... und warum Freiberg?
-
-![Welcome](images/AInfFreiberg.jpeg "Überblick")<!-- width="80%" -->
-
-Link zu den Webseiten des Institutes: https://tu-freiberg.de/fakult1/inf
-
-*******************************************************************************
-
 ## 1. Einführung
+
+![Welcome](images/PassatMitInnenleben.png "Motivation")<!-- width="40%" -->
 
 **Was heißt das eigentlich "Eingebettetes System"?**
 
