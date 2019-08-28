@@ -27,7 +27,7 @@ Technische Universität Bergakademie Freiberg
 
 <h2>Herzlich Willkommen!</h2>
 
-> Die interaktive Ansicht dieses Kurses ist unter folgendem [Link](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/ArduinoEinstieg/master/3day_workshop.md#1) verfügbar.
+> Die interaktive Ansicht dieses Kurses ist unter folgendem [Link](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/ArduinoEinstieg/master/3day_workshop_day2.md#1) verfügbar.
 
 https://github.com/liaScript/ArduinoEinstieg/blob/master/3day_workshop_day2.md
 
