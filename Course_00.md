@@ -369,18 +369,29 @@ Es wird ernst! Wir müssen den Taster elektrisch mit dem Board verbinden. Anweis
 
 [https://www.mangolabs.de/portfolio-item/micro-switches/](https://www.mangolabs.de/portfolio-item/micro-switches/)
 
+![BildSchalterlogik](images/Microswitch_bb.png)<!-- width="60%" -->
+
 {{1}}
 ```c               ActivateLed.ino
 // Loesung
-void loop() {
-  // read the state of the pushbutton value:
-  buttonState = digitalRead(buttonPin);
+const int buttonPin = 2;     // Pin des Buttons
+const int ledPin =  13;      // Pin der LED
 
-  // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
+// variables will change:
+int buttonState = 0;         // Variable für die Speicherung
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  pinMode(buttonPin, INPUT);
+}
+
+void loop() {
+  buttonState = digitalRead(buttonPin);
   if (buttonState == HIGH) {
     // turn LED on:
     digitalWrite(ledPin, HIGH);
-    delay(3000);
+  } else {
+    // turn LED off:
     digitalWrite(ledPin, LOW);
   }
 }
