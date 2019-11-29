@@ -325,7 +325,7 @@ Welche weiteren Möglichkeiten der Verbesserung sehen Sie?
 > **Aufgabe:** Schalten Sie die LED mittels Ultraschallsensor an und aus
 > (distanzabhäniger Lichtschalter)
 
-![RoboterSystem](./images/elegooUltraSonic.png)<!-- width="100%" -->
+![RoboterSystem](./images/elegooUltraSonic.png)<!-- width="80%" -->
 *Verdrahtung des Ultraschallsensors (elegoo Handbuch Seite 82)*
 
 ACHTUNG: Sie müssen für die Integration des Sensors noch die Bibliothek
@@ -389,9 +389,9 @@ void loop() {
 
 Als Servomotor werden spezielle Elektromotoren bezeichnet, die die Kontrolle der Winkelposition ihrer Motorwelle sowie der Drehgeschwindigkeit und Beschleunigung erlauben. Sie bestehen aus einem Elektromotor, der zusätzlich mit einem Sensor zur Positionsbestimmung ausgestattet ist.
 
-!?[ArduinoServo](https://www.youtube.com/watch?v=PrMgJSGK0Ls)<!-- width="100%">
+!?[ArduinoServo](https://www.youtube.com/watch?v=PrMgJSGK0Ls)<!-- width="100%"-->
 
-{{1}}
+                     {{1}}
 *******************************************************************************
 
 > Aufgabe: Geben Sie die Distanzmessungen des Ultraschallsensors auf eine selbstgewählten Scale aus. Welche Einschränkungen sehen Sie?
@@ -410,9 +410,9 @@ Ok, beginnen wir mit der Verdrahtung, die Implementierung kennen Sie ja schon.
 Wir wollen die eine Android Anwendung mit unserem Mikrocontroller koppeln. Dabei soll zunächst die Led des Controllers mit einem einfachen Button auf dem Smartphone verknüpft werden.
 
 Wir erweitern dafür unsere Schaltung um einen Bluetooth Sender/Empfänger, so dass das
-System mit uns Daten austauschen kann.
+System mit uns Daten austauschen kann.s
 
-![bluetooth](images/remotexy-scheme.jpg "RGB")<!-- width="80%" -->[^1](Webseite des RemoteXY Projektes)
+![bluetooth](images/remotexy-scheme.jpg "RGB")<!-- width="70%" -->[^1](Webseite des RemoteXY Projektes)
 
 Zwei Schritte sind für die Anwendung nötig:
 
@@ -560,7 +560,7 @@ void loop()
 Erweitern Sie den Code so, dass Sie das System so, dass Sie ein Passwort überprüfen,
 bevor die Lampe angeht.
 
-![bluetooth](images/PasswortViaBlueTooth.jpeg "RGB")<!-- width="80%" -->
+![bluetooth](images/PasswortViaBlueTooth.jpeg "RGB")<!-- width="70%" -->
 
 Dafür müssen Sie:
 
