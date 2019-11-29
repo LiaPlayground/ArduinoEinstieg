@@ -6,6 +6,9 @@ version:  0.0.1
 language: de
 narrator: Deutsch Female
 
+@logo: <a href="https://www.hrk.de/weltoffene-hochschulen"><img style="width: 10%; position:absolute; right:20px; top: 30px" src="https://www.hrk.de/fileadmin/redaktion/hrk/news/_migrated/images/Logo-Fuer-PM-Startseite.jpg"></a>
+
+
 link:     https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css
 
 import: https://raw.githubusercontent.com/LiaTemplates/Rextester/master/README.md
@@ -15,6 +18,8 @@ import: https://raw.githubusercontent.com/LiaTemplates/NetSwarm-Simulator/master
 
 
 # Arduino Einführung
+
+@logo
 
 **Eingebette Systeme**
 
@@ -33,6 +38,8 @@ https://github.com/liaScript/ArduinoEinstieg/blob/master/Course_00.md
 
 
 ## 1. Einführung
+
+@logo
 
 ![Welcome](images/PassatMitInnenleben.png "Motivation")<!-- width="40%" -->
 
@@ -75,6 +82,8 @@ https://github.com/liaScript/ArduinoEinstieg/blob/master/Course_00.md
 
 ## 2. Arduino Programmierung
 
+@logo
+
 Arduino nutzt eine C/C++ Semantik für die Programmierung, die folgende
 Grundelemente bedient
 
@@ -88,6 +97,8 @@ Grundelemente bedient
 Unter 2.4 folgen einige Beispiele für den Gebrauch der Schleifen und Verzweigungen.
 
 ### 2.1 Aufbau eines Arduino-Programmes
+
+@logo
 
 Jedes Arduinoprogramm umfasst 2 grundlegende Funktionen `setup()` und `loop()`.
 
@@ -111,6 +122,8 @@ void loop() {
 
 ### 2.2 Arduino IDE
 
+@logo
+
 ![Bildtext](images/ArduinoIDE_Screenshot.jpg "Arduino IDE")<!-- width="80%" -->
 
 Wichtige Grundeinstellungen:
@@ -120,6 +133,8 @@ Wichtige Grundeinstellungen:
 + Richtige Baudrate für die Serielle Schnittstellen
 
 ### 2.3 Hello World
+
+@logo
 
 *Und jetzt sind Sie dran!*
 
@@ -138,6 +153,8 @@ Kompilieren und flashen Sie das Programm! Wichtige Tastaturbefehle sind dabei
 | Strg-L            | Cursor auf Zeile setzen  |
 
 ### 2.4 C++ Basiskonstrukte und die Serielle Schnittstelle
+
+@logo
 
                               {{0-1}}
 *******************************************************************************
@@ -261,6 +278,8 @@ Eine anschauliche Dokumentation findet sich unter: [link](https://arduinobasics.
 
 ## 3. Einstiegsübung
 
+@logo
+
 > **Aufgabe:** Schreiben Sie einen Code, der das *SOS* Morsesignal über die
 > Led ausgibt!
 
@@ -286,6 +305,8 @@ void loop() {
 
 ## 4. Aufgabenkomplexe
 
+@logo
+
 ![MangoLabsSet](images/MangoLabsSet.jpg "MangoLabsSet")<!-- width="80%" -->
 
 * Webseiten des Wiki des Herstellers mangolabs
@@ -299,6 +320,8 @@ void loop() {
 
 
 ### 3a. Serielle Schnittstelle
+
+@logo
 
 {{0-3}}
 <!--
@@ -360,6 +383,8 @@ void loop() {
 
 ### 3b. Taster als Erweiterung
 
+@logo
+
 *Langweilig ... ! Das ist doch kein echtes eingebettetes System!*
 
 > **Aufgabe:** Der Taster schaltet die LED ein und nach 3 Sekunden geht sie von
@@ -400,6 +425,8 @@ void loop() {
 > **Spezialaufgabe:** Nutzen Sie das kapazitive Tastenfeld für diese Aufgabe
 
 ### 3c. Distanzsensor als Input
+
+@logo
 
 *Langweilig ... ! Wir wollen einen echten Sensor!*
 
@@ -442,6 +469,8 @@ void loop() {
 > mittels Mikrophon.
 
 ### 3d. Es wird bunt
+
+@logo
 
 Integration einer Mehrfarben LED als Erweiterung der Ausgabe
 
@@ -533,6 +562,8 @@ void loop() {
 
 
 ### 3e. Servomotor als Ausgabe
+
+@logo
 
 *Immer noch langweilig ... ! Wir wollen einen echten Aktor!*
 
