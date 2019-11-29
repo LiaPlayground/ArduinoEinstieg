@@ -27,14 +27,14 @@ Technische Universität Bergakademie Freiberg
 
 <h2>Herzlich Willkommen!</h2>
 
-> Die interaktive Ansicht dieses Kurses ist unter folgendem [Link](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/ArduinoEinstieg/master/Course_03.md#1) verfügbar.
+> Die interaktive Ansicht dieses Kurses ist unter folgendem [Link](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/ArduinoEinstieg/master/Course_02.md) verfügbar.
 
-https://github.com/liaScript/ArduinoEinstieg/blob/master/Course_03.md
+https://github.com/liaScript/ArduinoEinstieg/blob/master/Course_02.md
 
 
 ## 0. Motivation für den heutigen Kurs
 
-!?[Ziel](./images/UltraSonicBluetooth.mp4)<!-- width="80%" -->
+!?[Ziel](https://raw.githubusercontent.com/liaScript/ArduinoEinstieg/master/images/UltraSonicBluetooth.mp4)<!-- width="100%" -->
 
 ## 1. Arduino Programmierung
 
@@ -389,7 +389,7 @@ void loop() {
 
 Als Servomotor werden spezielle Elektromotoren bezeichnet, die die Kontrolle der Winkelposition ihrer Motorwelle sowie der Drehgeschwindigkeit und Beschleunigung erlauben. Sie bestehen aus einem Elektromotor, der zusätzlich mit einem Sensor zur Positionsbestimmung ausgestattet ist.
 
-!?[ArduinoServo](https://www.youtube.com/watch?v=PrMgJSGK0Ls)
+!?[ArduinoServo](https://www.youtube.com/watch?v=PrMgJSGK0Ls)<!-- width="100%">
 
 {{1}}
 *******************************************************************************
