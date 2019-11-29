@@ -32,6 +32,10 @@ Technische Universität Bergakademie Freiberg
 https://github.com/liaScript/ArduinoEinstieg/blob/master/Course_03.md
 
 
+## 0. Motivation für den heutigen Kurs
+
+!?[Ziel](./images/UltraSonicBluetooth.mp4)<!-- width="80%" -->
+
 ## 1. Arduino Programmierung
 
 Arduino nutzt eine C/C++ Semantik für die Programmierung, die folgende
