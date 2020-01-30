@@ -2,148 +2,53 @@
 
 author:   Sebastian Zug & André Dietrich
 email:    zug@ovgu.de   & andre.dietrich@ovgu.de
-version:  0.0.1
+version:  1.0.1
 language: de
 narrator: Deutsch Female
 
-script:   https://felixhao28.github.io/JSCPP/dist/JSCPP.es5.min.js
-
-@JSCPP.__eval
-<script>
-  try {
-    var output = "";
-    JSCPP.run(`@0`, `@1`, {stdio: {write: s => { output += s }}});
-    output;
-  } catch (msg) {
-    var error = new LiaError(msg, 1);
-
-    try {
-        var log = msg.match(/(.*)\nline (\d+) \(column (\d+)\):.*\n.*\n(.*)/);
-        var info = log[1] + " " + log[4];
-
-        if (info.length > 80)
-          info = info.substring(0,76) + "..."
-
-        error.add_detail(0, info, "error", log[2]-1, log[3]);
-    } catch(e) {}
-
-    throw error;
-    }
-</script>
-@end
+@logo: <a href="https://www.hrk.de/weltoffene-hochschulen"><img style="width: 10%; position:absolute; right:20px; top: 30px" src="https://www.hrk.de/fileadmin/redaktion/hrk/news/_migrated/images/Logo-Fuer-PM-Startseite.jpg"></a>
 
 
-@JSCPP.eval: @JSCPP.__eval(@input, )
+link:     https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css
 
-@JSCPP.eval_input: @JSCPP.__eval(@input,`@input(1)`)
+import: https://raw.githubusercontent.com/LiaTemplates/Rextester/master/README.md
+import: https://raw.githubusercontent.com/LiaTemplates/WebDev/master/README.md
+import: https://raw.githubusercontent.com/LiaTemplates/NetSwarm-Simulator/master/README.md
 
-@output: <pre class="lia-code-stdout">@0</pre>
-
-@output_: <pre class="lia-code-stdout" hidden="true">@0</pre>
-
-
-script:   https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js
-
-@Rextester.__eval
-<script>
-//var result = null;
-var error  = false;
-
-console.log = function(e){ send.lia("log", JSON.stringify(e), [], true); };
-
-function grep_(type, output) {
-  try {
-    let re_s = ":(\\d+):(\\d+): "+type+": (.+)";
-
-    let re_g = new RegExp(re_s, "g");
-    let re_i = new RegExp(re_s, "i");
-
-    let rslt = output.match(re_g);
-
-    let i = 0;
-    for(i = 0; i < rslt.length; i++) {
-        let e = rslt[i].match(re_i);
-
-        rslt[i] = { row : e[1]-1, column : e[2], text : e[3], type : type};
-    }
-    return [rslt];
-  } catch(e) {
-    return [];
-  }
-}
-
-$.ajax ({
-    url: "https://rextester.com/rundotnet/api",
-    type: "POST",
-    timeout: 10000,
-    data: { LanguageChoice: @0,
-            Program: `@input`,
-            Input: `@1`,
-            CompilerArgs : @2}
-    }).done(function(data) {
-        if (data.Errors == null) {
-            let warnings = grep_("warning", data.Warnings);
-
-            let stats = "\n-------Stat-------\n"+data.Stats.replace(/, /g, "\n");
-
-            if(data.Warnings)
-              stats = "\n-------Warn-------\n"+data.Warnings + stats;
-
-            send.lia("log", data.Result+stats, warnings, true);
-            send.lia("eval", "LIA: stop");
-
-        } else {
-            let errors = grep_("error", data.Errors);
-
-            let stats = "\n-------Stat-------\n"+data.Stats.replace(/, /g, "\n");
-
-            if(data.Warning)
-              stats = data.Errors + data.Warnings + stats;
-            else
-              stats = data.Errors + data.Warnings + stats;
-
-            send.lia("log", stats, errors, false);
-            send.lia("eval", "LIA: stop");
-        }
-    }).fail(function(data, err) {
-        send.lia("log", err, [], false);
-        send.lia("eval", "LIA: stop");
-    });
-
-"LIA: wait"
-</script>
-@end
-
-
-@Rextester.eval: @Rextester.__eval(6, ,"-Wall -std=gnu99 -O2 -o a.out source_file.c")
-
-@Rextester.eval_params: @Rextester.__eval(6, ,"@0")
-
-@Rextester.eval_input: @Rextester.__eval(6,`@input(1)`,"-Wall -std=gnu99 -O2 -o a.out source_file.c")
-
+import: https://raw.githubusercontent.com/liaScript/rextester_template/master/README.md
 -->
 
-# MINT-Tag des Cotta-Gymnasiums Brand-Erbisdorf
+# SeeCampus Niederlausitz, Akademievorträge 2020
 
-**Einführung eingebettete Systeme**
 
-Prof. Dr. Sebastian Zug, Prof. Dr. Bernhard Jung, Technische Universität Bergakademie Freiberg
+Prof. Dr. Sebastian Zug, Technische Universität Bergakademie Freiberg
 
-------------------------------
+-------------------------------------------------------------------------------
 
 ![Welcome](images/WorkingDesk.jpg "Experiments")<!-- width="80%" -->
 
+<font size="6">Einführung in die Mirkocontrollerprogrammierung</font>
+
 Herzlich Willkommen!
 
-> Die interaktive Ansicht dieses Kurses ist unter folgendem [Link](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/ArduinoEinstieg/master/Introduction.md#1) verfügbar.
+-------------------------------------------------------------------------------
 
-## 0. Wie viel Informatik steckt in MINT?
-{{0-1}}
+> Dieser Kurs wurde mit LiaScipt erstellt. Die interaktive Ansicht dieses Kurses ist unter folgendem [Link](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/ArduinoEinstieg/master/Introduction.md#1) verfügbar.
+
+## 0. Warum Informatik? Warum Mikrocontroller?
+
+              {{0-1}}
+******************************************************************************
+Schauen wir uns ein Anwendungsbeispiel an ...
+
 ![Welcome](images/PassatMitInnenleben.png "Motivation")<!-- width="60%" -->
 
-{{0-1}}
 > _"Ein Auto ist ein Computer\[netzwerk\] mit vier Rädern"_ (Quelle gesucht)
 
+
+> _"Mainstream cars may have up to 10 million lines of code and high-end luxury sedans can have nearly 100 million."_ (Your average car is a lot more code-driven than you think [Link](https://eu.usatoday.com/story/tech/columnist/2016/06/28/your-average-car-lot-more-code-driven-than-you-think/86437052/))
+
+*******************************************************************************
 
 {{1-2}}
 ... und warum sollte ich das in Freiberg studieren?
@@ -209,8 +114,8 @@ Arduino nutzt eine C/C++ Semantik für die Programmierung, die folgende
 Grundelemente bedient
 
 {{1}}
+*******************************************************************************
 ```c     A_BlinkLed.c
-// the setup function runs once when you press reset or power the board
 const int ledPin = A2;
 
 void setup() {
@@ -225,11 +130,23 @@ void loop() {
 }
 ```
 
-{{2}}
+Was unterscheidet die Programmierung eines eingebettenten Systems von einem PC?
+
+*******************************************************************************
+
+                     {{2}}
+********************************************************************************
 **2.2 Arduino IDE**
 
-{{2}}
 ![Bildtext](images/ArduinoIDE_Screenshot.jpg "Arduino IDE")<!-- width="80%" -->
+
+Wichtige Grundeinstellungen:
+
++ Richtigen Port für den Programmiervorgang auswählen (Tools -> Port)
++ Richtigen Controller auswählen (Tools -> Board)
++ Richtige Baudrate für die Serielle Schnittstellen
+
+********************************************************************************
 
 {{3}}
 **2.3 ... und jetzt mal praktisch**
@@ -256,30 +173,65 @@ Was brauchen wir dafür?
 
 [^1] roboticlab.eu "Funktionsweise eines Ultraschall-Entfernungsmessers."
 
-{{1}}
+Für eine gleichförmige Bewegung können wir den Weg als Produkt aus dem Messintervall und der halben Laufzeit abbilden.
+
+$$s = v \cdot \frac{t}{2}$$
+
+
+{{1-2}}
+******************************
+Leider gibt es ein Problem, die Schallgeschwindigkeit ist nicht konstant! Annäherungsweise gilt
+
+$$V (m/s) = 331.3 + (0.606 × T) $$
+
+Versuchen wir eine kleine Fehlerabschätzung, wenn wir den Temperatureinfluss ignorieren.
+
+```python CalcUltraSonicSpeed.py
+def calcUSspeed(T):
+  return 331.3 + (0.606 * T)
+
+print calcUSspeed(25)
+```@Rextester.eval(@Python)
+
+******************************
+
+{{2-3}}
+******************************
+
+Link auf die Dokumentation der Funktion `PulseIn` [Link](https://www.arduino.cc/reference/en/language/functions/advanced-io/pulsein/)
+
 ```c     B_UltraSonic.c
-#include <NewPing.h>
+const int trigPin = 8;
+const int echoPin = 9;
 
-#define TRIGGER_PIN  16  // Arduino pin tied to trigger pin on the ultrasonic sensor.
-#define ECHO_PIN     15  // Arduino pin tied to echo pin on the ultrasonic sensor.
-#define MAX_DISTANCE 30  // Maximum distance we want to ping for (in centimeters).
+//float temp = 25;
+//const float us_speed = (331.3 + (0.606 * temp)) / 1000 / 1000 * 100;
 
-NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
-// NewPing setup of pins and maximum distance.
+long duration;
+float distance;
 
 void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
   Serial.begin(9600);
 }
 
 void loop() {
-  delay(50);                     // Wait 50ms between pings (about 20 pings/sec).
-  Serial.print("Ping: ");
-  Serial.print(sonar.ping_cm()); // Send ping, get distance in cm and print result
-  Serial.println("cm");          //(0 = outside set distance range)
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(5);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  duration = pulseIn(echoPin, HIGH);
+  Serial.print(duration);
+
+  delay(50);
 }
 ```
-{{1}}
-Ausblick: Arduino Plot, Schalten der LED, Eingangszähler
+Wie integrieren wir die Abbildung auf cm?
+
+******************************
 
 ### Display
 
@@ -311,18 +263,20 @@ style="width: 80%; max-width: 460px; display: block; margin-left: auto; margin-r
 
 {{2}}
 ```c     C_Display.c
-#include <LiquidCrystal.h>
+#include <Wire.h>
+#include <LiquidCrystal_PCF8574.h>
 
-LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
+int lcdi2c = 0x27;
+
+LiquidCrystal_PCF8574 lcd(lcdi2c);  // autoset the LCD address
 
 void setup()
 {
   lcd.begin(16, 2);
+  lcd.setBacklight(100);
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("hello world");
-  lcd.setCursor(1, 0);
-  lcd.print("5171");
+  lcd.print("Hello World");
 }
 
 void loop()
@@ -338,9 +292,9 @@ Ausblick: `scrollDisplayLeft()` [Arduino Dokumentation](https://www.arduino.cc/e
 Welche Funktionen brauchen wir also?
 
 <!--
-style="width: 60%; max-width: 300px; display: block; margin-left: auto; margin-right: auto;"
+style="width: 60%; max-width: 460px; display: block; margin-left: auto; margin-right: auto;"
 -->
-````
+```ascii
             .------------------------.
             |                        |
             v                        |
@@ -359,32 +313,55 @@ style="width: 60%; max-width: 300px; display: block; margin-left: auto; margin-r
  ╚══════════════════════╝            |
             |                        |
             '------------------------╯
-````
+```
 
 {{1}}
 ```c     D_Final.c
-#include <LiquidCrystal.h>
+#include <Wire.h>
+#include <LiquidCrystal_PCF8574.h>
 
-LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
-// ToDo Ultraschallsensor integrieren
+int lcdi2c = 0x27;
+LiquidCrystal_PCF8574 lcd(lcdi2c);
 
-float result = 0;
+const int trigPin = 8;
+const int echoPin = 9;
+float temp = 25;
+const float us_speed = (331.3 + (0.606 * temp)) / 1000 / 1000 * 100;
+
+float distance;
 
 void showMeanDistance(){
   lcd.setCursor(0, 0);
-  lcd.print("Distanz");
-  lcd.setCursor(9, 0);
-  lcd.print(result);
+  lcd.print("Distanz ");
+  lcd.print(distance, 2);
+  // Todo Positionskorrektur
+  lcd.setCursor(0, 1);
+  lcd.print("Temperatur ");
+  lcd.print(temp, 0);
 }
 
 void readMeanDistance(){
-  // Todo Messungen und Mittelwertgenerierung integrieren
-  result = 32.1;
+  long duration;
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(5);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  duration = pulseIn(echoPin, HIGH);
+  distance = duration * us_speed / 2;
+  Serial.println(distance);
+  // Todo Messungen glätten
 }
 
 void setup()
 {
   lcd.begin(16, 2);
+  lcd.setBacklight(100);
+  lcd.clear();
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  Serial.begin(9600);
 }
 
 void loop()
@@ -397,11 +374,38 @@ void loop()
 
 ## 4. Wie geht es weiter?
 
+{{0-1}}
+************************
 Unser Chef hat sich neue Ideen ausgedacht ...
 
 1. Die Auflösung ist ihm zu gering!
 2. Bestimmte Materialien werden nur schlecht erkannt.
 3. Das Display wäre schlecht ablesbar und wir sollten unser Messsystem mit dem Mobiltelefon koppeln ...
+************************
 
-{{1}}
-*Danke für die Aufmerksamkeit*
+{{1-2}}
+***************************
+Worüber würden wir in einem ingenieurwissenschaftlichen Studium sprechen?
+
++ Was läuft hinter der Bühne ab? Wie arbeiten die einzelnen Komponenten des Rechners?
++ Wie kann man die Qualität und Robustheit der Messung steigern?
++ Wie setzen wir den Entwicklungsprozess um?
+
+... diese und alle anderen Fragen rund ums Studiums beantworte ich gern gleich im Anschluss, oder ...
+
+
+<!--
+style="width: 80%; max-width: 660px; display: block; margin-left: auto; margin-right: auto;"
+-->
+```ascii
++=============================================================+
+| Informationstage / Schnupper-Events an der TU Bergakademie  |
+|    * Girlsday (26.03.2020)                                  |
+|    * Frühjahrsakademie (24.02. - 28.02.2020)                |
+|    * Campustag (16.05.2020)                                 |
++=============================================================+
+```
+************************
+
+{{3}}
+> __Danke für die Aufmerksamkeit!__
