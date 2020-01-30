@@ -1,31 +1,46 @@
-#include <LiquidCrystal.h>
-#include <NewPing.h>
+#include <Wire.h>
+#include <LiquidCrystal_PCF8574.h>
 
-LiquidCrystal lcd(8, 9, 4, 5, 6, 7); 
+int lcdi2c = 0x27;
+LiquidCrystal_PCF8574 lcd(lcdi2c);
 
-#define TRIGGER_PIN  16  // Arduino pin tied to trigger pin on the ultrasonic sensor.
-#define ECHO_PIN     15  // Arduino pin tied to echo pin on the ultrasonic sensor.
-#define MAX_DISTANCE 100  // Maximum distance we want to ping for (in centimeters).
+const int trigPin = 8;
+const int echoPin = 9;
+float temp = 25;
+const float us_speed = (331.3 + (0.606 * temp)) / 1000 / 1000 * 100;
 
-NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
-
-float result = 0;
+float distance;
 
 void showMeanDistance(){
   lcd.setCursor(0, 0);
-  lcd.print("Distanz");
-  lcd.setCursor(9, 0);
-  lcd.print(result);
+  lcd.print("Distanz ");
+  lcd.print(distance, 2);
+  // Todo Positionskorrektur
+  lcd.setCursor(0, 1);
+  lcd.print("Temperatur ");
+  lcd.print(temp, 0);
 }
 
 void readMeanDistance(){
-  // Todo Messungen und Mittelwertgenerierung integrieren
-  result = 12.3;
+  long duration = 0;
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(5);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration = pulseIn(echoPin, HIGH);
+  distance = duration * us_speed / 2;
+  // Todo Mittelwertbildung
 }
 
-void setup() 
-{ 
+void setup()
+{
   lcd.begin(16, 2);
+  lcd.setBacklight(10);
+  lcd.clear();
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  Serial.begin(9600);
 }
 
 void loop()

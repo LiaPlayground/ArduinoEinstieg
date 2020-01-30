@@ -1,23 +1,36 @@
-#include <NewPing.h>
+const int trigPin = 8;
+const int echoPin = 9;
 
-#define TRIGGER_PIN  16  // Arduino pin tied to trigger pin on the ultrasonic sensor.
-#define ECHO_PIN     15  // Arduino pin tied to echo pin on the ultrasonic sensor.
-#define MAX_DISTANCE 30  // Maximum distance we want to ping for (in centimeters).
+float temp = 25;
+const float us_speed = (331.3 + (0.606 * temp)) / 1000 / 1000 * 100;
 
-NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
-// NewPing setup of pins and maximum distance.
+long t;
+int distance;
 
 void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
   Serial.begin(9600);
 }
 
 void loop() {
-  delay(50);                     // Wait 50ms between pings (about 20 pings/sec).
-  Serial.print("Ping: ");
-  Serial.print(sonar.ping_cm()); // Send ping, get distance in cm and print result
-  Serial.println("cm");          //(0 = outside set distance range)
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(5);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  t = pulseIn(echoPin, HIGH);
+  //Serial.println(duration);
+  distance = t /2 * us_speed;
+  //Serial.print("Distance = ");
+  Serial.println(distance);
+  //Serial.println(" cm");
+
+  delay(50);
 }
 
 
-// TODO: Serial Plotter
-//       Add digital output
+// Umrechnung Dauer [us] in Distanz [cm]
+// Serial plotter
+// pulseIn Documentation
