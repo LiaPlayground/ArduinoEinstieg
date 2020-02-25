@@ -283,7 +283,7 @@ Eine anschauliche Dokumentation findet sich unter: [link](https://arduinobasics.
 > **Aufgabe:** Schreiben Sie einen Code, der das *SOS* Morsesignal über die
 > Led ausgibt!
 
-Welche Anpassungen sind dafür notwendig?
+Welche Anpassungen sind dafür an unserem Beispiel vornehmen?
 
 ```c
 const int ledPin = 13;
@@ -323,34 +323,8 @@ void loop() {
 
 @logo
 
-{{0-3}}
-<!--
-style="height: 80px; display: block; margin-right: auto;"
--->
-````
--> Demo: Hello World Programm
-         (Serielle Schnittstelle und LED anschalten)
-````
+Die Arbeit mit der seriellen Schnittstelle vom Arduino zum PC kennen Sie bereits. Aber das Ganze funktioniert auch umgekehrt.
 
-{{1-3}}
-> **Aufgabe:** Schreiben Sie einen Code, der die Zahlen von 0 bis 9 über die
-> serielle Schnittstelle ausgibt.
-
-{{2-3}}
-```c      PrintNumbers.ino
-// Loesung
-void setup() {
-  Serial.begin(57600);
-  for (int counter=0; counter < 10; counter++) {
-    Serial.print(counter);
-  }
-}
-
-void loop() {
-}
-```
-
-{{3-6}}
 <!--
 style="height: 60px; display: block; margin-right: auto;"
 -->
@@ -358,11 +332,10 @@ style="height: 60px; display: block; margin-right: auto;"
 -> Demo:  Vorführung Erfassen von Zeichen
 ````
 
-{{4-6}}
 > **Aufgabe:** Erweitern Sie den Code, so dass wir die LED über 'A' an- und
 > 'B' ausschalten können.
 
-{{5-6}}
+{{1-2}}
 ```c      ControlLed.ino
 // Loesung
 void loop() {
@@ -516,9 +489,9 @@ void loop() {
 ```c         ViewDistance.ino
 #include <NewPing.h>
 
-#define TRIGGER_PIN  12  // Arduino pin tied to trigger pin on the ultrasonic sensor.
-#define ECHO_PIN     11  // Arduino pin tied to echo pin on the ultrasonic sensor.
-#define MAX_DISTANCE 256 // Maximum distance we want to ping for (in centimeters).
+const int triggerPin = 12;   
+const int echoPin = 11;     
+const int maxDistance = 400;
 
 const int redPin = 10;
 const int greenPin = 9;
@@ -532,7 +505,7 @@ void setColourRgb(unsigned int red, unsigned int green, unsigned int blue) {
 
 const int ledPin =  13;      // the number of the LED pin
 
-NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
+NewPing sonar(triggerPin, echoPin, maxDistance);
 // NewPing setup of pins and maximum distance.
 
 void setup() {

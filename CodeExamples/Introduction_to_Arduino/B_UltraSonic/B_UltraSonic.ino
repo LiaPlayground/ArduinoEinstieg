@@ -21,10 +21,10 @@ void loop() {
   digitalWrite(trigPin, LOW);
 
   t = pulseIn(echoPin, HIGH);
-  //Serial.println(duration);
-  distance = t /2 * us_speed;
+  Serial.println(duration);
+  //distance = 
   //Serial.print("Distance = ");
-  Serial.println(distance);
+  //Serial.println(distance);
   //Serial.println(" cm");
 
   delay(50);
