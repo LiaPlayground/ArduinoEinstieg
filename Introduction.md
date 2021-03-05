@@ -26,7 +26,7 @@ Prof. Dr. Sebastian Zug, Technische Universität Bergakademie Freiberg
 
 ![Welcome](images/WorkingDesk.jpg)<!-- width="50%" -->
 
-<font size="6"> Geschwister-Scholl-Gymnasium Freiberg</font>
+<font size="6"> Herzlich willkommen </font>
 -------------------------------------------------------------------------------
 
 > Dieser Kurs wurde mit LiaScipt erstellt. Die interaktive Ansicht dieses Kurses ist unter folgendem [Link](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/ArduinoEinstieg/master/Introduction.md#1) verfügbar.
