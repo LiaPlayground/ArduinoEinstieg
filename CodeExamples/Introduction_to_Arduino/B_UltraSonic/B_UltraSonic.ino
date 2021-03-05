@@ -1,5 +1,5 @@
-const int trigPin = 8;
-const int echoPin = 9;
+const int trigPin = A4;
+const int echoPin = A5;
 
 float temp = 25;
 const float us_speed = (331.3 + (0.606 * temp)) / 1000 / 1000 * 100;
@@ -21,7 +21,7 @@ void loop() {
   digitalWrite(trigPin, LOW);
 
   t = pulseIn(echoPin, HIGH);
-  Serial.println(duration);
+  Serial.println(t);
   //distance = 
   //Serial.print("Distance = ");
   //Serial.println(distance);

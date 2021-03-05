@@ -1,11 +1,9 @@
-#include <Wire.h>
-#include <LiquidCrystal_PCF8574.h>
+#include <LiquidCrystal.h>
 
-int lcdi2c = 0x27;
-LiquidCrystal_PCF8574 lcd(lcdi2c);
+LiquidCrystal lcd(8, 13, 9, 4, 5, 6, 7); // diese Pins werden benutzt
 
-const int trigPin = 8;
-const int echoPin = 9;
+const int trigPin = A4;
+const int echoPin = A5;
 float temp = 25;
 const float us_speed = (331.3 + (0.606 * temp)) / 1000 / 1000 * 100;
 
@@ -36,7 +34,6 @@ void readMeanDistance(){
 void setup()
 {
   lcd.begin(16, 2);
-  lcd.setBacklight(10);
   lcd.clear();
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);

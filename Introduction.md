@@ -24,7 +24,7 @@ Prof. Dr. Sebastian Zug, Technische Universität Bergakademie Freiberg
 
 -------------------------------------------------------------------------------
 
-![Welcome](images/WorkingDesk.jpg "Experiments")<!-- width="80%" -->
+![Welcome](images/WorkingDesk.jpg)<!-- width="60%" -->
 
 <font size="6"> Geschwister-Scholl-Gymnasium Freiberg</font>
 
@@ -40,7 +40,7 @@ Herzlich Willkommen!
 ******************************************************************************
 Schauen wir uns ein Anwendungsbeispiel an ...
 
-![Welcome](images/PassatMitInnenleben.png)<!-- width="50%" -->
+![Welcome](images/PassatMitInnenleben.png)<!-- width="40%" -->
 
 > _"Mainstream cars may have up to 10 million lines of code and high-end luxury sedans can have nearly 100 million."_ (Your average car is a lot more code-driven than you think [Link](https://eu.usatoday.com/story/tech/columnist/2016/06/28/your-average-car-lot-more-code-driven-than-you-think/86437052/))
 
@@ -153,7 +153,7 @@ Wichtige Grundeinstellungen:
 
 *"Entwickeln Sie einen Distanzmesser, der einen Abstandswert ermittelt und ausgibt"*
 
-![Bildtext](images/AnwendungsFallDistanzsensor.png)<!-- width="80%" -->
+![Bildtext](images/AnwendungsFallDistanzsensor.png)<!-- width="50%" -->
 [^1]
 
 [^1]: Firma Bosch "Laser Distanzmesser Zamo"
@@ -228,7 +228,7 @@ void loop() {
   delay(50);
 }
 ```
-Wie integrieren wir die Abbildung auf cm?
+Wie integrieren wir die Abbildung auf cm? Das schauen wir uns jetzt mit dem realen System an [Link](https://github.com/LiaScript/ArduinoEinstieg/blob/master/CodeExamples/Introduction_to_Arduino/B_UltraSonic/B_UltraSonic.ino).
 
 ******************************
 
@@ -238,13 +238,13 @@ Wie integrieren wir die Abbildung auf cm?
 Welches Display zu welchem Zweck?
 
 {{0-1}}
-![Bildtext](images/DisplayTypen.png "DisplayTypen")<!-- width="80%" -->
+![Bildtext](images/DisplayTypen.png)<!-- width="80%" -->
 
 {{1-2}}
-![Bildtext](images/DisplayImage.png "Prinzipskizze Schallausbreitung")<!-- width="60%" -->
+![Bildtext](images/DisplayImage.png)<!-- width="60%" -->
 
 {{1-2}}
-![Bildtext](images/CharsetHitachi.png "Prinzipskizze Schallausbreitung")<!-- width="60%" -->
+![Bildtext](images/CharsetHitachi.png)<!-- width="60%" -->
 
 {{2}}
 <!--
@@ -355,7 +355,6 @@ void readMeanDistance(){
 void setup()
 {
   lcd.begin(16, 2);
-  lcd.setBacklight(100);
   lcd.clear();
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
@@ -391,14 +390,14 @@ Worüber würden wir in einem ingenieurwissenschaftlichen Studium sprechen?
 
 ... diese und alle anderen Fragen rund ums Studiums beantworte ich gern gleich im Anschluss, oder ...
 
-> Weiterführende Materialien auf der Basis von LiaScript gibt es unter [https://github.com/SebastianZug/VL_ProzeduraleProgrammierung](https://github.com/SebastianZug/VL_ProzeduraleProgrammierung). Hier werden sowohl die Konzepte von C als auch der objektorientierten Programmierung eingeführt.
-
 **Informationstage / Schnupper-Events an der TU Bergakademie**
 * Frühjahrsakademie MATHEMATIK (29.03. bis 9.04.)
 * Schüleruniversität (26.07. - 3.09.) [http://tu-freiberg.de/schueleruni/anmeldung](http://tu-freiberg.de/schueleruni/anmeldung)       
 * Campustag (5.06.)                               
 
+> Weiterführende Materialien auf der Basis von LiaScript gibt es unter [https://github.com/SebastianZug/VL_ProzeduraleProgrammierung](https://github.com/SebastianZug/VL_ProzeduraleProgrammierung). Hier werden sowohl die Konzepte von C als auch der objektorientierten Programmierung eingeführt.
+
 ************************
 
-{{3}}
+{{2}}
 > __Danke für die Aufmerksamkeit!__
