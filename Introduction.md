@@ -238,13 +238,13 @@ Wie integrieren wir die Abbildung auf cm? Das schauen wir uns jetzt mit dem real
 Welches Display zu welchem Zweck?
 
 {{0-1}}
-![Bildtext](images/DisplayTypen.png)<!-- width="80%" -->
+![Bildtext](images/DisplayTypen.png)<!-- width="70%" -->
 
 {{1-2}}
-![Bildtext](images/DisplayImage.png)<!-- width="60%" -->
+![Bildtext](images/DisplayImage.png)<!-- width="40%" -->
 
 {{1-2}}
-![Bildtext](images/CharsetHitachi.png)<!-- width="60%" -->
+![Bildtext](images/CharsetHitachi.png)<!-- width="40%" -->
 
 {{2}}
 <!--
