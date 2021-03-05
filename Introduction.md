@@ -24,11 +24,7 @@ Prof. Dr. Sebastian Zug, Technische Universität Bergakademie Freiberg
 
 -------------------------------------------------------------------------------
 
-![Welcome](images/WorkingDesk.jpg)<!-- width="60%" -->
-
-<font size="6"> Geschwister-Scholl-Gymnasium Freiberg</font>
-
-Herzlich Willkommen!
+![Welcome](images/WorkingDesk.jpg)<!-- width="50%" -->
 
 -------------------------------------------------------------------------------
 
