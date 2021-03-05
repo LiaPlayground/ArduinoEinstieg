@@ -11,14 +11,13 @@ narrator: Deutsch Female
 
 link:     https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css
 
-import: https://raw.githubusercontent.com/LiaTemplates/Rextester/master/README.md
-import: https://raw.githubusercontent.com/LiaTemplates/WebDev/master/README.md
-import: https://raw.githubusercontent.com/LiaTemplates/NetSwarm-Simulator/master/README.md
+import: https://github.com/LiaTemplates/AVR8js/main/README.md#10
+        https://github.com/LiaTemplates/Pyodide
+        https://raw.githubusercontent.com/LiaTemplates/WebDev/master/README.md
 
-import: https://raw.githubusercontent.com/liaScript/rextester_template/master/README.md
 -->
 
-# SeeCampus Niederlausitz, Akademievorträge 2020
+# Sensor, Compiler, Leiterbahn – Einblick in die hardwarenahe Programmierung
 
 
 Prof. Dr. Sebastian Zug, Technische Universität Bergakademie Freiberg
@@ -27,7 +26,7 @@ Prof. Dr. Sebastian Zug, Technische Universität Bergakademie Freiberg
 
 ![Welcome](images/WorkingDesk.jpg "Experiments")<!-- width="80%" -->
 
-<font size="6">Einführung in die Mirkocontrollerprogrammierung</font>
+<font size="6"> Geschwister-Scholl-Gymnasium Freiberg</font>
 
 Herzlich Willkommen!
 
@@ -41,17 +40,14 @@ Herzlich Willkommen!
 ******************************************************************************
 Schauen wir uns ein Anwendungsbeispiel an ...
 
-![Welcome](images/PassatMitInnenleben.png "Motivation")<!-- width="60%" -->
-
-> _"Ein Auto ist ein Computer\[netzwerk\] mit vier Rädern"_ (Quelle gesucht)
-
+![Welcome](images/PassatMitInnenleben.png)<!-- width="50%" -->
 
 > _"Mainstream cars may have up to 10 million lines of code and high-end luxury sedans can have nearly 100 million."_ (Your average car is a lot more code-driven than you think [Link](https://eu.usatoday.com/story/tech/columnist/2016/06/28/your-average-car-lot-more-code-driven-than-you-think/86437052/))
 
 *******************************************************************************
 
 {{1-2}}
-... und warum sollte ich das in Freiberg studieren?
+> ... und warum die ganz kleinen Systeme? Ich will Webentwickler werden!
 
 {{1-2}}
 ![Welcome](images/AInfFreiberg.jpeg "Überblick")<!-- width="80%" -->
@@ -88,13 +84,12 @@ Link zu den Webseiten des Institutes: https://tu-freiberg.de/fakult1/inf
   https://www.arduino.cc/
 
 {{3}}
-  ![Arduino Hardwarefamilie](images/ArduinoGallery.jpg "ArduinoFamilie")<!-- width="70%" -->
+  ![Arduino Hardwarefamilie](images/ArduinoGallery.jpg)<!-- width="70%" -->
   [^3]
 
-{{3}}
-[^1] nach Wikipedia "Eingebettete Systeme"
-[^2] http://21stdigitalhome.blogspot.com/2016/03/cross-compiling-compile-c-programs-on.html
-[^3] aus entsprechendem Artikel "Spiegel Online" http://www.spiegel.de/netzwelt/gadgets/arduino-erklaert-das-kann-der-microcontroller-a-1105328.html
+[^1]: nach Wikipedia "Eingebettete Systeme"
+[^2]: http://21stdigitalhome.blogspot.com/2016/03/cross-compiling-compile-c-programs-on.html
+[^3]: aus entsprechendem Artikel "Spiegel Online" http://www.spiegel.de/netzwelt/gadgets/arduino-erklaert-das-kann-der-microcontroller-a-1105328.html
 
 
 ## 2. Arduino Hardware / Software
@@ -103,32 +98,35 @@ Link zu den Webseiten des Institutes: https://tu-freiberg.de/fakult1/inf
 **2.1 Die Hardware**
 
 {{0}}
-![ArduinoUno](images/ArduinoUno.png "ArduinoUno")<!-- width="80%" -->
+![ArduinoUno](images/ArduinoUno.png)<!-- width="70%" -->
 
-
-{{1}}
+                              {{1}}
+****************************************************************************
 **2.2 Aufbau eines Arduino-Programmes**
 
-{{1}}
 Arduino nutzt eine C/C++ Semantik für die Programmierung, die folgende
 Grundelemente bedient
 
-{{1}}
-*******************************************************************************
-```c     A_BlinkLed.c
-const int ledPin = A2;
+<div>
+  <wokwi-led color="red" pin="13" port="B" label="13"></wokwi-led>
+  <span id="simulation-time"></span>
+</div>
+```cpp       arduino.cpp
+const int ledPin = 13;
 
 void setup() {
   pinMode(ledPin, OUTPUT);
 }
 
 void loop() {
-  digitalWrite(ledPin, HIGH);  // turn the LED on (HIGH is the voltage level)
-  delay(1000);                 // wait for a second
-  digitalWrite(ledPin, LOW);   // turn the LED off by making the voltage LOW
-  delay(1000);                 // wait for a second
+  digitalWrite(ledPin, HIGH);  
+  delay(1000);                
+  digitalWrite(ledPin, LOW);
+  delay(1000);  
 }
 ```
+@AVR8js.sketch
+
 
 Was unterscheidet die Programmierung eines eingebettenten Systems von einem PC?
 
@@ -136,7 +134,7 @@ Was unterscheidet die Programmierung eines eingebettenten Systems von einem PC?
 
                      {{2}}
 ********************************************************************************
-**2.2 Arduino IDE**
+**2.3 Arduino IDE**
 
 ![Bildtext](images/ArduinoIDE_Screenshot.jpg "Arduino IDE")<!-- width="80%" -->
 
@@ -149,29 +147,29 @@ Wichtige Grundeinstellungen:
 ********************************************************************************
 
 {{3}}
-**2.3 ... und jetzt mal praktisch**
+**2.4 ... und jetzt mal praktisch**
 
 ## 3. Unser Projekt
 
-"Entwickeln Sie einen Distanzmesser, der einen Abstandswert ermittelt und ausgibt"
+*"Entwickeln Sie einen Distanzmesser, der einen Abstandswert ermittelt und ausgibt"*
 
-![Bildtext](images/AnwendungsFallDistanzsensor.png "Arduino IDE")<!-- width="80%" -->
+![Bildtext](images/AnwendungsFallDistanzsensor.png)<!-- width="80%" -->
 [^1]
 
-[^1] Firma Bosch "Laser Distanzmesser Zamo"
+[^1]: Firma Bosch "Laser Distanzmesser Zamo"
 
 
 {{1}}
-Was brauchen wir dafür?
+> **Frage:** Was brauchen wir dafür?
 
 ### Distanzmessung mit Ultraschall
 
 ... Was war das noch mal, "Schallgeschwindigkeit"
 
-![Bildtext](images/UltraschallPrinzip.png "Prinzipskizze Schallausbreitung")<!-- width="40%" -->
+![Bildtext](images/UltraschallPrinzip.png)<!-- width="40%" -->
 [^1]
 
-[^1] roboticlab.eu "Funktionsweise eines Ultraschall-Entfernungsmessers."
+[^1]: roboticlab.eu "Funktionsweise eines Ultraschall-Entfernungsmessers."
 
 Für eine gleichförmige Bewegung können wir den Weg als Produkt aus dem Messintervall und der halben Laufzeit abbilden.
 
@@ -190,8 +188,9 @@ Versuchen wir eine kleine Fehlerabschätzung, wenn wir den Temperatureinfluss ig
 def calcUSspeed(T):
   return 331.3 + (0.606 * T)
 
-print calcUSspeed(25)
-```@Rextester.eval(@Python)
+print(calcUSspeed(25) / calcUSspeed(0))
+```
+@Pyodide.eval
 
 ******************************
 
@@ -257,30 +256,29 @@ style="width: 80%; max-width: 460px; display: block; margin-left: auto; margin-r
    ╔═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╗
  0 ║h│e│l│l│o│ │w│o│r│l│d│ │ │ │ │ ║
    ╟─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─╢
- 1 ║5│1│7│1│ │ │ │ │ │ │ │ │ │ │ │ ║
+ 1 ║T│U│ │F│r│e│i│b│e│r│g│ │ │ │ │ ║
    ╚═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╝
 ````
 
 {{2}}
 ```c     C_Display.c
-#include <Wire.h>
-#include <LiquidCrystal_PCF8574.h>
+#include <LiquidCrystal.h>
 
-int lcdi2c = 0x27;
-
-LiquidCrystal_PCF8574 lcd(lcdi2c);  // autoset the LCD address
+LiquidCrystal lcd(8, 13, 9, 4, 5, 6, 7); // diese Pins werden benutzt
 
 void setup()
 {
-  lcd.begin(16, 2);
-  lcd.setBacklight(100);
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("Hello World");
+  lcd.clear(); // LCD löschen
+  lcd.begin(16, 2); // verfügbare Spalten und Zeilen
+  lcd.setCursor(0,0); // 0. Spalte (= ganz links) und 0. Zeile (= oben)
+  lcd.print("Hello World!");
+  lcd.setCursor(0,1);
+  lcd.print("TU Freiberg");
 }
 
 void loop()
 {
+  // Hier passiert nichts
 }
 ```
 
@@ -393,18 +391,13 @@ Worüber würden wir in einem ingenieurwissenschaftlichen Studium sprechen?
 
 ... diese und alle anderen Fragen rund ums Studiums beantworte ich gern gleich im Anschluss, oder ...
 
+> Weiterführende Materialien auf der Basis von LiaScript gibt es unter [https://github.com/SebastianZug/VL_ProzeduraleProgrammierung](https://github.com/SebastianZug/VL_ProzeduraleProgrammierung). Hier werden sowohl die Konzepte von C als auch der objektorientierten Programmierung eingeführt.
 
-<!--
-style="width: 80%; max-width: 660px; display: block; margin-left: auto; margin-right: auto;"
--->
-```ascii
-+=============================================================+
-| Informationstage / Schnupper-Events an der TU Bergakademie  |
-|    * Girlsday (26.03.2020)                                  |
-|    * Frühjahrsakademie (24.02. - 28.02.2020)                |
-|    * Campustag (16.05.2020)                                 |
-+=============================================================+
-```
+**Informationstage / Schnupper-Events an der TU Bergakademie**
+* Frühjahrsakademie MATHEMATIK (29.03. bis 9.04.)
+* Schüleruniversität (26.07. - 3.09.) [http://tu-freiberg.de/schueleruni/anmeldung](http://tu-freiberg.de/schueleruni/anmeldung)       
+* Campustag (5.06.)                               
+
 ************************
 
 {{3}}
