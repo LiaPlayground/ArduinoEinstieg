@@ -30,7 +30,7 @@ Prof. Dr. Sebastian Zug, Technische Universität Bergakademie Freiberg
 <font size="6"> Herzlich willkommen </font>
 -------------------------------------------------------------------------------
 
-> Dieser Kurs wurde mit LiaScipt erstellt. Die interaktive Ansicht dieses Kurses ist unter folgendem [Link](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/ArduinoEinstieg/master/Introduction.md#1) verfügbar.
+> Dieser Kurs wurde mit LiaScipt erstellt. Die interaktive Ansicht dieses Kurses ist unter folgendem [Link](https://liascript.github.io/course/?https://raw.githubusercontent.com/LiaScript/ArduinoEinstieg/master/OnlineCourse.md#1) verfügbar.
 
 ## 0. Warum Informatik? Warum Mikrocontroller?
 
