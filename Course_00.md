@@ -6,20 +6,16 @@ version:  0.0.1
 language: de
 narrator: Deutsch Female
 
-@logo: <a href="https://www.hrk.de/weltoffene-hochschulen"><img style="width: 10%; position:absolute; right:20px; top: 30px" src="https://www.hrk.de/fileadmin/redaktion/hrk/news/_migrated/images/Logo-Fuer-PM-Startseite.jpg"></a>
-
-
 link:     https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css
 
 import: https://raw.githubusercontent.com/LiaTemplates/Rextester/master/README.md
-import: https://raw.githubusercontent.com/LiaTemplates/WebDev/master/README.md
-import: https://raw.githubusercontent.com/LiaTemplates/NetSwarm-Simulator/master/README.md
+        https://raw.githubusercontent.com/LiaTemplates/WebDev/master/README.md
+        https://github.com/LiaTemplates/AVR8js/main/README.md#10
+        https://raw.githubusercontent.com/LiaTemplates/NetSwarm-Simulator/master/README.md
 -->
 
 
-# Arduino Einführung
-
-@logo
+# Mikrocontroller Einführung
 
 **Eingebette Systeme**
 
@@ -39,50 +35,49 @@ https://github.com/liaScript/ArduinoEinstieg/blob/master/Course_00.md
 
 ## 1. Einführung
 
-@logo
 
-![Welcome](images/PassatMitInnenleben.png "Motivation")<!-- width="40%" -->
+
+![Welcome](images/PassatMitInnenleben.png "Motivation")<!-- width="50%" -->
 
 **Was heißt das eigentlich "Eingebettetes System"?**
 
                               {{1-2}}
 *******************************************************************************
-> ... ein elektronischer Rechner ..., der in einen technischen Kontext
-> eingebunden ist. Dabei übernimmt der (Kleinst-)Rechner entweder
-> Überwachungs-, Steuerungs- oder Regelfunktionen ... weitestgehend unsichtbar
-> für den Benutzer .. \[nach Wikipedia "Eingebettete Systeme"\].
+> _... ein elektronischer Rechner ..., der in einen technischen Kontext_
+> _eingebunden ist. Dabei übernimmt der (Kleinst-)Rechner entweder_
+> _Überwachungs-, Steuerungs- oder Regelfunktionen ... weitestgehend unsichtbar_
+> _für den Benutzer .. \[nach Wikipedia "Eingebettete Systeme"\]._
 *******************************************************************************
 
 **Wie programmiere ich einen Mikrocontroller?**
 
                               {{2-3}}
 *******************************************************************************
-> Compiler wird eine Software genannt, die einen in einer Programmiersprache
-> geschrieben Quellcode so übersetzt, dass sie von Maschinen verstanden
-> werden können.
+> _Compiler wird eine Software genannt, die einen in einer Programmiersprache_
+> _geschrieben Quellcode so übersetzt, dass sie von Maschinen verstanden_
+> _werden können._
 *******************************************************************************
 
 **Was ist das Arduino Projekt?**
 
                                  {{3}}
 *******************************************************************************
-> Arduino ist eine aus Soft- und Hardware bestehende
-> Physical-Computing-Plattform. Beide Komponenten sind im Sinne von Open
-> Source quelloffen. Die Hardware besteht aus einem einfachen E/A-Board mit
-> einem Mikrocontroller und analogen und digitalen Ein- und Ausgängen.
+> _Arduino ist eine aus Soft- und Hardware bestehende_
+> _Physical-Computing-Plattform. Beide Komponenten sind im Sinne von Open_
+> _Source quelloffen. Die Hardware besteht aus einem einfachen E/A-Board mit_
+> _einem Mikrocontroller und analogen und digitalen Ein- und Ausgängen._
 
   https://www.arduino.cc/
 
-  ![Arduino Hardwarefamilie](images/ArduinoGallery.jpg "ArduinoFamilie")<!-- width="70%" -->
-  [^3]
-
-[^3] aus entsprechendem Artikel "Spiegel Online" http://www.spiegel.de/netzwelt/gadgets/arduino-erklaert-das-kann-der-microcontroller-a-1105328.html
+![Arduino Hardwarefamilie](images/ArduinoGallery.jpg "ArduinoFamilie [^3]")
 
 *******************************************************************************
 
+[^3]: aus entsprechendem Artikel "Spiegel Online" http://www.spiegel.de/netzwelt/gadgets/arduino-erklaert-das-kann-der-microcontroller-a-1105328.html
+
 ## 2. Arduino Programmierung
 
-@logo
+
 
 Arduino nutzt eine C/C++ Semantik für die Programmierung, die folgende
 Grundelemente bedient
@@ -92,39 +87,39 @@ Grundelemente bedient
 + wichtige Schlüsselwörter sind `for`, `if`, `while`, etc.
 + Kommentare werden durch `//` eingeleitet
 
-![Cheat-Sheet](images/Arduino-Cheat-Sheet_v0.1.png "Cheat-Sheet")<!-- width="80%" -->
-
-Unter 2.4 folgen einige Beispiele für den Gebrauch der Schleifen und Verzweigungen.
+![Cheat-Sheet](images/Arduino-Cheat-Sheet_v0.1.png "Cheat-Sheet")
 
 ### 2.1 Aufbau eines Arduino-Programmes
 
-@logo
+
 
 Jedes Arduinoprogramm umfasst 2 grundlegende Funktionen `setup()` und `loop()`.
 
-```c
+<div>
+  <wokwi-led color="red" pin="13" port="B" label="13"></wokwi-led>
+  <span id="simulation-time"></span>
+</div>
+```cpp       arduino.cpp
 const int ledPin = 13;
 
-// the setup function runs once when you press reset or power the board
 void setup() {
-  // initialize digital pin ledPin as an output.
   pinMode(ledPin, OUTPUT);
 }
 
-// the loop function runs over and over again forever
 void loop() {
-  digitalWrite(ledPin, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(1000);                  // wait for a second
-  digitalWrite(ledPin, LOW);    // turn the LED off by making the voltage LOW
-  delay(1000);                  // wait for a second
+  digitalWrite(ledPin, HIGH);  
+  delay(1000);                
+  digitalWrite(ledPin, LOW);
+  delay(1000);  
 }
 ```
+@AVR8js.sketch
 
 ### 2.2 Arduino IDE
 
-@logo
 
-![Bildtext](images/ArduinoIDE_Screenshot.jpg "Arduino IDE")<!-- width="80%" -->
+
+![Bildtext](images/ArduinoIDE_Screenshot.jpg "Arduino IDE")
 
 Wichtige Grundeinstellungen:
 
@@ -134,7 +129,7 @@ Wichtige Grundeinstellungen:
 
 ### 2.3 Hello World
 
-@logo
+
 
 *Und jetzt sind Sie dran!*
 
@@ -154,7 +149,7 @@ Kompilieren und flashen Sie das Programm! Wichtige Tastaturbefehle sind dabei
 
 ### 2.4 C++ Basiskonstrukte und die Serielle Schnittstelle
 
-@logo
+
 
                               {{0-1}}
 *******************************************************************************
@@ -170,7 +165,10 @@ Anhand des NetSwarm Simulator können diese ausgeführt werden.  Achtung, bis au
 die Serielle Schnittstelle können keine  weiteren Funktionalitäten genutzt
 werden!
 
-```c
+<div>
+  <span id="simulation-time"></span>
+</div>
+```cpp       arduino.cpp
 void setup() {
   Serial.begin(9600);
   Serial.println("Hello World");
@@ -179,7 +177,8 @@ void setup() {
 void loop() {
 }
 ```
-@NetSwarm.single_loop
+@AVR8js.sketch
+
 
 Arduino kennt zwei Varianten der Ausgabe mit `print` - das einfache `print` und `println`. Welchen Unterschied vermuten Sie?
 *******************************************************************************
@@ -191,7 +190,10 @@ Arduino kennt zwei Varianten der Ausgabe mit `print` - das einfache `print` und 
 
 Was müssen wir tuen, um die Zahlen von 1 bis 10 auf dem Terminal anzuzeigen?
 
-```c
+<div>
+  <span id="simulation-time"></span>
+</div>
+```cpp       arduino.cpp
 void setup() {
   Serial.begin(9600);
   int counter = 0;
@@ -204,7 +206,7 @@ void setup() {
 void loop() {
 }
 ```
-@NetSwarm.single_loop
+@AVR8js.sketch
 
 Welche "Einsparmöglichkeiten" sehen Sie als erfahrener Programmierer in dem Beispiel? Wie kann der Code, mit der gleichen Ausgabe kürzer gestaltet werden?
 *******************************************************************************
@@ -227,7 +229,10 @@ else{
 
 wobei der `else` Abschnitt optional ist.
 
-```c
+<div>
+  <span id="simulation-time"></span>
+</div>
+```cpp       arduino.cpp
 void setup() {
   Serial.begin(9600);
   float value = 5.234;
@@ -242,7 +247,8 @@ void setup() {
 void loop() {
 }
 ```
-@NetSwarm.single_loop
+@AVR8js.sketch
+
 
 *******************************************************************************
 
@@ -252,7 +258,10 @@ void loop() {
 
 Bedingungen werden dabei wie folgt formuliert:
 
-```c
+<div>
+  <span id="simulation-time"></span>
+</div>
+```c      ardunino.cpp
 void setup() {
   Serial.begin(9600);
   int a = 2;
@@ -267,7 +276,7 @@ void setup() {
 void loop() {
 }
 ```
-@NetSwarm.single_loop
+@AVR8js.sketch
 
 Für die Ausgabe von komplexeren, vorformatierten Ausdrücken können Sie auf einen
 Befehl aus der C++ Standard-Bibliothek zurückgreifen `sprintf`
@@ -278,7 +287,7 @@ Eine anschauliche Dokumentation findet sich unter: [link](https://arduinobasics.
 
 ## 3. Einstiegsübung
 
-@logo
+
 
 > **Aufgabe:** Schreiben Sie einen Code, der das *SOS* Morsesignal über die
 > Led ausgibt!
@@ -305,7 +314,7 @@ void loop() {
 
 ## 4. Aufgabenkomplexe
 
-@logo
+
 
 ![MangoLabsSet](images/MangoLabsSet.jpg "MangoLabsSet")<!-- width="80%" -->
 
@@ -314,14 +323,13 @@ void loop() {
 
 * Referenzübersicht Arduino
 
-    + deutsch (unvollständig) https://www.arduino.cc/reference/de/
+  + deutsch (unvollständig) https://www.arduino.cc/reference/de/
+  + englisch https://www.arduino.cc/reference/en/
 
-    + englisch https://www.arduino.cc/reference/en/
+
+### 4a. Serielle Schnittstelle
 
 
-### 3a. Serielle Schnittstelle
-
-@logo
 
 Die Arbeit mit der seriellen Schnittstelle vom Arduino zum PC kennen Sie bereits. Aber das Ganze funktioniert auch umgekehrt.
 
@@ -354,9 +362,9 @@ void loop() {
 }
 ```
 
-### 3b. Taster als Erweiterung
+### 4b. Taster als Erweiterung
 
-@logo
+
 
 *Langweilig ... ! Das ist doch kein echtes eingebettetes System!*
 
@@ -397,9 +405,9 @@ void loop() {
 
 > **Spezialaufgabe:** Nutzen Sie das kapazitive Tastenfeld für diese Aufgabe
 
-### 3c. Distanzsensor als Input
+### 4c. Distanzsensor als Input
 
-@logo
+
 
 *Langweilig ... ! Wir wollen einen echten Sensor!*
 
@@ -441,9 +449,9 @@ void loop() {
 > **Spezialaufgabe:** Realisiert eine Aktivieren über eine Schallamplitude
 > mittels Mikrophon.
 
-### 3d. Es wird bunt
+### 4d. Es wird bunt
 
-@logo
+
 
 Integration einer Mehrfarben LED als Erweiterung der Ausgabe
 
@@ -534,9 +542,7 @@ void loop() {
 ```
 
 
-### 3e. Servomotor als Ausgabe
-
-@logo
+### 4e. Servomotor als Ausgabe
 
 *Immer noch langweilig ... ! Wir wollen einen echten Aktor!*
 
