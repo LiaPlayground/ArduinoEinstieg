@@ -2,7 +2,7 @@
 
 author:   Sebastian Zug & André Dietrich
 email:    zug@ovgu.de   & andre.dietrich@ovgu.de
-version:  0.0.2
+version:  0.0.3
 language: de
 narrator: Deutsch Female
 
@@ -163,9 +163,7 @@ Versenden und den Empfang von Textnachrichten. Damit können Sie zum Beispiel
 Messwerte ausgeben oder das Erreichen bestimmter Programmpositionen anzeigen.
 
 Die folgenden Beispiele vermitteln grundlegende Programmierkonstrukte in C++.
-Anhand des NetSwarm Simulator können diese ausgeführt werden.  Achtung, bis auf
-die Serielle Schnittstelle können keine  weiteren Funktionalitäten genutzt
-werden!
+Diese können in der Simulation ausgeführt werden.  
 
 <div>
   <span id="simulation-time"></span>
@@ -183,6 +181,7 @@ void loop() {
 
 
 Arduino kennt zwei Varianten der Ausgabe mit `print` - das einfache `print` und `println`. Welchen Unterschied vermuten Sie?
+
 *******************************************************************************
 
                               {{1-2}}
@@ -211,6 +210,7 @@ void loop() {
 @AVR8js.sketch
 
 Welche "Einsparmöglichkeiten" sehen Sie als erfahrener Programmierer in dem Beispiel? Wie kann der Code, mit der gleichen Ausgabe kürzer gestaltet werden?
+
 *******************************************************************************
 
                               {{2-3}}
@@ -289,9 +289,7 @@ Eine anschauliche Dokumentation findet sich unter: [link](https://arduinobasics.
 
 ## 3. Einstiegsübung
 
-
-
-> **Aufgabe:** Schreiben Sie einen Code, der das *SOS* Morsesignal über die
+> **Aufgabe 1:** Schreiben Sie einen Code, der das *SOS* Morsesignal über die
 > Led ausgibt!
 
 Welche Anpassungen sind dafür an unserem Beispiel vornehmen?
@@ -317,11 +315,7 @@ void loop() {
 ## 4. Aufgabenkomplexe
 
 
-
 ![MangoLabsSet](images/MangoLabsSet.jpg "MangoLabsSet")<!-- width="80%" -->
-
-* Webseiten des Wiki des Herstellers mangolabs
-   [https://www.mangolabs.de/wiki/](https://www.mangolabs.de/wiki/)
 
 * Referenzübersicht Arduino
 
@@ -329,59 +323,43 @@ void loop() {
   + englisch https://www.arduino.cc/reference/en/
 
 
-### 4a. Serielle Schnittstelle
-
+### 4a. Serielle Schnittstelle als Eingabe
 
 
 Die Arbeit mit der seriellen Schnittstelle vom Arduino zum PC kennen Sie bereits. Aber das Ganze funktioniert auch umgekehrt.
 
-<!--
-style="height: 60px; display: block; margin-right: auto;"
--->
-````
--> Demo:  Vorführung Erfassen von Zeichen
-````
+<div>
+  <span id="simulation-time"></span>
+</div>
+```c      ardunino.cpp
+char incomingByte;
 
-> **Aufgabe:** Erweitern Sie den Code, so dass wir die LED über 'A' an- und
-> 'B' ausschalten können.
+void setup() {
+  Serial.begin(9600);
+}
 
-{{1-2}}
-```c      ControlLed.ino
-// Loesung
 void loop() {
   if (Serial.available() > 0) {
         incomingByte = Serial.read();
         Serial.write(incomingByte);
         if (incomingByte == 'A'){
-          Serial.println("An");
-          digitalWrite(13, HIGH);
+          Serial.println("A gelesen");
         }
-        if (incomingByte == 'B'){
-          digitalWrite(13, LOW);
-          Serial.println("Aus");
-        }
-  }
+    }
 }
 ```
+@AVR8js.sketch
+
+> **Aufgabe:** Erweitern Sie den Code, so dass wir die LED über 'A' an- und
+> 'B' ausschalten können. Dazu "mischen" Sie den Code aus dieser und der vorangegangen Aufgabe.
 
 ### 4b. Taster als Erweiterung
 
-
-
 *Langweilig ... ! Das ist doch kein echtes eingebettetes System!*
-
-> **Aufgabe:** Der Taster schaltet die LED ein und nach 3 Sekunden geht sie von
-> selbst wieder aus.
-
-Es wird ernst! Wir müssen den Taster elektrisch mit dem Board verbinden. Anweisungen unter ...
-
-[https://www.mangolabs.de/portfolio-item/micro-switches/](https://www.mangolabs.de/portfolio-item/micro-switches/)
 
 ![BildSchalterlogik](images/Microswitch_bb.png)<!-- width="60%" -->
 
-{{1}}
 ```c               ActivateLed.ino
-// Loesung
 const int buttonPin = 2;     // Pin des Buttons
 const int ledPin =  13;      // Pin der LED
 
@@ -405,22 +383,31 @@ void loop() {
 }
 ```
 
-> **Spezialaufgabe:** Nutzen Sie das kapazitive Tastenfeld für diese Aufgabe
+> **Aufgabe:** Der Taster schaltet die LED ein und nach 3 Sekunden geht sie von
+> selbst wieder aus.
 
 ### 4c. Distanzsensor als Input
-
-
 
 *Langweilig ... ! Wir wollen einen echten Sensor!*
 
 > **Aufgabe:** Schalten Sie die LED mittels Ultraschallsensor an und aus
 > (distanzabhäniger Lichtschalter)
 
+Verbinden Sie den Ultraschallsensor mit Ihrem Board entsprechend dieser Belegung:
+
+<!-- data-type="none" -->
+| Sensor IO | Pin am Board |
+| --------- | ------------ |
+| VCC       | 5V           |
+| GND       | GND          |
+| Echo      | 11           |
+| Trigger   | 12           |
+
+
 ACHTUNG: Sie müssen für die Integration des Sensors noch die Bibliothek
 `NewPing` installieren. Finden Sie dafür allein einen Weg? Recherchieren sie in
 den Arduino Foren zur Frage "How to install a library for Arduino?"
 
-{{1}}
 ```c               Sonar.ino
 // Loesung
 #include <NewPing.h>
@@ -439,36 +426,20 @@ void setup() {
 
 void loop() {
   delay(50);
-  if ((sonar.ping_cm() < 10) && (sonar.ping_cm() > 0)){
-     digitalWrite(ledPin, HIGH);
-     Serial.println("Alarm!");
-  }
-  else
-     digitalWrite(ledPin, LOW);
+  Serial.println(sonar.ping_cm());
 }
 ```
 
-> **Spezialaufgabe:** Realisiert eine Aktivieren über eine Schallamplitude
-> mittels Mikrophon.
+Erweitern Sie das Programm so, dass eine Aktivierung der LED erfolgt, wenn ein Hindernis näher als 10cm kommt.
 
 ### 4d. Es wird bunt
 
-
-
 Integration einer Mehrfarben LED als Erweiterung der Ausgabe
 
-![RGB](images/rgb-farbmodell.png "RGB")<!-- width="60%" -->   [^1]
+![RGB](images/rgb-farbmodell.png "RGB [^1]")<!-- width="60%" -->   
 
-[^1] https://www.informatikzentrale.de/rgb-farbmodell.html
+![Diode](images/KY016.png)<!-- width="60%" -->
 
-https://www.mangolabs.de/portfolio-item/rgb-led-2/
-
-<!--
-style="height: 60px; display: block; margin-right: auto;"
--->
-````
--> Demo:  Demo mit der Mehrfarben Led
-````
 
 ```c     LedDifferentColors.ino
 // Methoden aus dem Lösungsvorschlag der MangoLabs
@@ -495,60 +466,5 @@ void loop() {
 
 > **Aufgabe:** Wechseln Sie die Farben der LED in Abhängigkeit von der Entfernung
 
-{{1}}
-```c         ViewDistance.ino
-#include <NewPing.h>
-
-const int triggerPin = 12;   
-const int echoPin = 11;     
-const int maxDistance = 400;
-
-const int redPin = 10;
-const int greenPin = 9;
-const int bluePin = 8;
-
-void setColourRgb(unsigned int red, unsigned int green, unsigned int blue) {
-  analogWrite(redPin, red);
-  analogWrite(greenPin, green);
-  analogWrite(bluePin, blue);
-}
-
-const int ledPin =  13;      // the number of the LED pin
-
-NewPing sonar(triggerPin, echoPin, maxDistance);
-// NewPing setup of pins and maximum distance.
-
-void setup() {
-  Serial.begin(9600); // Open serial monitor at 9600 baud to see ping results.
-  setColourRgb(0,0,0);
-}
-
-void loop() {
-  int red, green, blue;
-  delay(50);                     // Wait 50ms between pings (about 20 pings/sec).
-  if ((sonar.ping_cm() <= 10) && (sonar.ping_cm() > 0)){
-     Serial.println("Alarm!");
-     setColourRgb(255, 0, 0);
-  }
-  if ((sonar.ping_cm() <= 20) && (sonar.ping_cm() > 10)){
-     digitalWrite(ledPin, HIGH);
-     Serial.println("Nah dran!");
-     setColourRgb(0, 0, 255);
-  }
-  if ((sonar.ping_cm() <= 30) && (sonar.ping_cm() > 20)){
-     digitalWrite(ledPin, HIGH);
-     Serial.println("Nah dran!");
-     setColourRgb(0, 255, 0);
-  }
-}
-```
-
-
-### 4e. Servomotor als Ausgabe
-
-*Immer noch langweilig ... ! Wir wollen einen echten Aktor!*
-
-> **Aufgabe:** Geben Sie die Ausgaben des Distanzsensors mit dem Servomotor aus.
-> Entwerfen Sie dazu eine Skale die von "super weit weg" bis "dichter gehts nicht mehr".
-> reicht.
-https://www.mangolabs.de/portfolio-item/micro-servo/
+[^1] https://www.informatikzentrale.de/rgb-farbmodell.html
+[^2]: https://arduinomodules.info/ky-016-rgb-full-color-led-module/
