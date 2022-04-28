@@ -2,11 +2,13 @@
 
 author:   Sebastian Zug & André Dietrich
 email:    zug@ovgu.de   & andre.dietrich@ovgu.de
-version:  0.0.2
+version:  0.0.3
 language: de
 narrator: Deutsch Female
 
 -->
+
+[![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/LiaScript/ArduinoEinstieg/master/SolderingCourse.md#1)
 
 # GirlsDay 2022
 
