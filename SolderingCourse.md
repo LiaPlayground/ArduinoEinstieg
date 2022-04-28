@@ -2,13 +2,13 @@
 
 author:   Sebastian Zug & André Dietrich
 email:    zug@ovgu.de   & andre.dietrich@ovgu.de
-version:  0.0.1
+version:  0.0.2
 language: de
 narrator: Deutsch Female
 
 -->
 
-# GirlsDay 2019
+# GirlsDay 2022
 
 **"Löten und Programmieren"**
 
