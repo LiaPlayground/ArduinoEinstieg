@@ -265,7 +265,7 @@ Und wie gehen wir bei der Fehlersuche vor?
 4. Fehlermeldung aufmerksam lesen
 5. ggf. Hypothesen aufstellen und prüfen
 
-> **Aufgabe:** Debuggen Sie den obrigen Quellcode!.
+> **Aufgabe:** Debuggen Sie den obigen Quellcode!.
 
 ## 3. Unsere "Schatzkiste"
 
