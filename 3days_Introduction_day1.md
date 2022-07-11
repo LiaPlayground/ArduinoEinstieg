@@ -14,7 +14,7 @@ import: https://raw.githubusercontent.com/LiaTemplates/Rextester/master/README.m
         https://raw.githubusercontent.com/LiaTemplates/NetSwarm-Simulator/master/README.md
 -->
 
-[![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/ArduinoEinstieg/master/Course_00.md#1)
+[![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/ArduinoEinstieg/master/3days_Introduction_day1.md#1)
 
 
 # Mikrocontroller Einführung - Tag 1
