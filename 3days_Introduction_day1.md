@@ -17,7 +17,7 @@ import: https://raw.githubusercontent.com/LiaTemplates/Rextester/master/README.m
 [![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/ArduinoEinstieg/master/3days_Introduction_day1.md#1)
 
 
-# Mikrocontroller Einführung - Tag 1
+# Mikrocontroller & App-Entwicklung - Tag 1
 
 Prof. Dr. Sebastian Zug,
 Technische Universität Bergakademie Freiberg
