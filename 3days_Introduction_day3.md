@@ -2,7 +2,7 @@
 
 author:   Sebastian Zug & André Dietrich
 email:    zug@ovgu.de   & andre.dietrich@ovgu.de
-version:  0.0.4
+version:  0.0.5
 language: de
 narrator: Deutsch Female
 
@@ -202,11 +202,19 @@ void loop()
 
 Die aai Datei finden Sie unter [Github-link](https://github.com/LiaScript/ArduinoEinstieg/raw/master/CodeExamples/ProjektwocheGymnasium/check_bluetooth/CheckBLConnection.aia)
 
-### Text-to-Speech
-
-
 ### Anzeige der Messwerte
 
+![MITAppInventor](images/AppInventor_Acc_Designer.png "Ansicht des App-Inventors für die Erhebung der Beschleunigungsdaten")
+
+![MITAppInventor](images/AppInventor_Acc_Blocks.png "Ansicht des Programms des Beispielprojekts")
+
+> Aufgabe: Wie können Sie die Werte so anpassen, dass sie in unser Rastermaß für die Mehrfarben-LED (ganze Zahlen, 0-254) fallen?
+
+### Text-to-Speech
+
+![MITAppInventor](images/AppInventor_SpeechToText_Designer.png "Ansicht des App-Inventors für die Erfassung von Sprachbefehlen")
+
+![MITAppInventor](images/AppInventor_SpeechToText_Blocks.png "Ansicht des Programms des Beispielprojekts")
 
 ## Freie Anwendungsentwicklung
 
