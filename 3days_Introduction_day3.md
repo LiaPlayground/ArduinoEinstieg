@@ -47,7 +47,7 @@ Ich habe den Zeitplan etwas angepasst ...
 | **Mittwoch (App Entwicklung)** | 09:00 - 10:30 | Textausgabe auf dem Display, Bluetooth Kommunikation im App Inventor |
 |                                | 10:55 - 11:55 | Freie Anwendungsentwicklung                                          |
 |                                | 12:00 - 12:30 | Vorbereitung Präsentation                                            |
-| **Donnerstag **                |               |                                                                      |
+| **Donnerstag **                | 13:00 - 16:00 |                                                                      |
 
 
 <!--
