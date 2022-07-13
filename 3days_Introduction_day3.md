@@ -2,7 +2,7 @@
 
 author:   Sebastian Zug & André Dietrich
 email:    zug@ovgu.de   & andre.dietrich@ovgu.de
-version:  0.0.3
+version:  0.0.4
 language: de
 narrator: Deutsch Female
 
@@ -28,7 +28,7 @@ Technische Universität Bergakademie Freiberg
 
 <h2>Herzlich Willkommen!</h2>
 
-> Die interaktive Ansicht dieses Kurses ist unter folgendem [Link](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/ArduinoEinstieg/master/Course_00.md#1) verfügbar.
+> Die interaktive Ansicht dieses Kurses ist unter folgendem [Link](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/ArduinoEinstieg/master/3days_Introduction_day2.md#1) verfügbar.
 
 Der Quellcode der Materialien ist unter https://github.com/liaScript/ArduinoEinstieg/blob/master/3days_Introduction_day2.md zu finden.
 
@@ -47,7 +47,7 @@ Ich habe den Zeitplan etwas angepasst ...
 | **Mittwoch (App Entwicklung)** | 09:00 - 10:30 | Textausgabe auf dem Display, Bluetooth Kommunikation im App Inventor |
 |                                | 10:55 - 11:55 | Freie Anwendungsentwicklung                                          |
 |                                | 12:00 - 12:30 | Vorbereitung Präsentation                                            |
-| **Donnerstag **                | 13:00 - 16:00 |                                                                      |
+| **Donnerstag**                 | 13:00 - 16:00 |                                                                      |
 
 
 <!--
