@@ -220,7 +220,23 @@ void loop()
 
 ![MITAppInventor](images/MITAppInventor_Blocks.png "Ansicht des Programms des Beispielprojekts")
 
-Die aai Datei finden Sie unter [Github-link](https://github.com/LiaScript/ArduinoEinstieg/raw/master/CodeExamples/ProjektwocheGymnasium/check_bluetooth/CheckBLConnection.aia)
+Die .aia Datei finden Sie unter [Github-Link](https://github.com/LiaScript/ArduinoEinstieg/raw/master/CodeExamples/ProjektwocheGymnasium/check_bluetooth/CheckBLConnection.aia)
+
+### App-Inventor (für iOS) + Mikrocontroller
+
+Wie bereits erwähnt, unterstützen iOS-Geräte nur Kommunikation mit einem Bluetooth-LE-Modul, andersherum sind die Bluetooth-LE-Module auch mit Android kompatibel.
+
+Die .aia-Datei finden Sie unter [Github-Link](https://github.com/LiaScript/ArduinoEinstieg/raw/master/CodeExamples/ProjektwocheGymnasium/check_bluetooth/BLE_Connection.aia)
+
+![MITAppInventor](images/MITAppInventor_BLE.png "Ansicht für Bluetooth-LE Modul")
+
+> Beachten Sie, dass Sie die Suche zuerst stoppen müssen, bevor sie das als "HmSoft" aufgeführte BLE-Modul auswählen können
+
+> Bei der Verwendung mehrere HmSofts in einem Raum sollte das Handy direkt an das Modul gehalten werden, damit das Richtige oben in der Liste auftaucht!
+
+Zusätzlich muss eine Erweiterung (.aix) für das Bluetooth-LE-Modul installiert werden, diese finden Sie unter [Github-Link](https://github.com/LiaScript/ArduinoEinstieg/raw/master/CodeExamples/ProjektwocheGymnasium/check_bluetooth/BLE_Module.aix)
+
+![MITAppInventor](images/MITAppInventor_BLE_Erweiterung.png "Installation Bluetooth-LE Erweiterung")
 
 ## Freie Anwendungsentwicklung
 
