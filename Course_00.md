@@ -39,7 +39,6 @@ Der Quellcode der Materialien ist unter https://github.com/liaScript/ArduinoEins
 > Wer bin ich?
 
 ![Husky](images/Husky_on_tour.png "Autonomer Roboter der Arbeitsgruppe")
-
 ![Husky](images/Schwimmroboter.png "TUBAF Schwimmroboter mit Windmessungsaufsatz")
 
 > Wer sind Sie? Was erwarten Sie vom heutigen Tutorial?
