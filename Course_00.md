@@ -2,7 +2,7 @@
 
 author:   Sebastian Zug & André Dietrich
 email:    zug@ovgu.de   & andre.dietrich@ovgu.de
-version:  0.0.3
+version:  0.0.4
 language: de
 narrator: Deutsch Female
 
@@ -34,10 +34,17 @@ Technische Universität Bergakademie Freiberg
 
 Der Quellcode der Materialien ist unter https://github.com/liaScript/ArduinoEinstieg/blob/master/Course_00.md zu finden.
 
+## Kennenlernen
 
-## 1. Einführung
+> Wer bin ich?
 
+![Husky](images/Husky_on_tour.png "Autonomer Roboter der Arbeitsgruppe")
 
+![Husky](images/Schwimmroboter.png "TUBAF Schwimmroboter mit Windmessungsaufsatz")
+
+> Wer sind Sie? Was erwarten Sie vom heutigen Tutorial?
+
+## Einführung
 
 ![Welcome](images/PassatMitInnenleben.png "Motivation")<!-- width="50%" -->
 
@@ -78,8 +85,6 @@ Der Quellcode der Materialien ist unter https://github.com/liaScript/ArduinoEins
 [^3]: aus entsprechendem Artikel "Spiegel Online" http://www.spiegel.de/netzwelt/gadgets/arduino-erklaert-das-kann-der-microcontroller-a-1105328.html
 
 ## 2. Arduino Programmierung
-
-
 
 Arduino nutzt eine C/C++ Semantik für die Programmierung, die folgende
 Grundelemente bedient
