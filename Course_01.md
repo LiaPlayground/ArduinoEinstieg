@@ -2,140 +2,38 @@
 
 author:   Sebastian Zug & André Dietrich
 email:    zug@ovgu.de   & andre.dietrich@ovgu.de
-version:  0.0.1
+version:  0.0.5
 language: de
 narrator: Deutsch Female
 
-script:   https://felixhao28.github.io/JSCPP/dist/JSCPP.es5.min.js
+link:     https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css
 
-@JSCPP.__eval
-<script>
-  try {
-    var output = "";
-    JSCPP.run(`@0`, `@1`, {stdio: {write: s => { output += s }}});
-    output;
-  } catch (msg) {
-    var error = new LiaError(msg, 1);
-
-    try {
-        var log = msg.match(/(.*)\nline (\d+) \(column (\d+)\):.*\n.*\n(.*)/);
-        var info = log[1] + " " + log[4];
-
-        if (info.length > 80)
-          info = info.substring(0,76) + "..."
-
-        error.add_detail(0, info, "error", log[2]-1, log[3]);
-    } catch(e) {}
-
-    throw error;
-    }
-</script>
-@end
-
-
-@JSCPP.eval: @JSCPP.__eval(@input, )
-
-@JSCPP.eval_input: @JSCPP.__eval(@input,`@input(1)`)
-
-@output: <pre class="lia-code-stdout">@0</pre>
-
-@output_: <pre class="lia-code-stdout" hidden="true">@0</pre>
-
-
-script:   https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js
-
-@Rextester.__eval
-<script>
-//var result = null;
-var error  = false;
-
-console.log = function(e){ send.lia("log", JSON.stringify(e), [], true); };
-
-function grep_(type, output) {
-  try {
-    let re_s = ":(\\d+):(\\d+): "+type+": (.+)";
-
-    let re_g = new RegExp(re_s, "g");
-    let re_i = new RegExp(re_s, "i");
-
-    let rslt = output.match(re_g);
-
-    let i = 0;
-    for(i = 0; i < rslt.length; i++) {
-        let e = rslt[i].match(re_i);
-
-        rslt[i] = { row : e[1]-1, column : e[2], text : e[3], type : type};
-    }
-    return [rslt];
-  } catch(e) {
-    return [];
-  }
-}
-
-$.ajax ({
-    url: "https://rextester.com/rundotnet/api",
-    type: "POST",
-    timeout: 10000,
-    data: { LanguageChoice: @0,
-            Program: `@input`,
-            Input: `@1`,
-            CompilerArgs : @2}
-    }).done(function(data) {
-        if (data.Errors == null) {
-            let warnings = grep_("warning", data.Warnings);
-
-            let stats = "\n-------Stat-------\n"+data.Stats.replace(/, /g, "\n");
-
-            if(data.Warnings)
-              stats = "\n-------Warn-------\n"+data.Warnings + stats;
-
-            send.lia("log", data.Result+stats, warnings, true);
-            send.lia("eval", "LIA: stop");
-
-        } else {
-            let errors = grep_("error", data.Errors);
-
-            let stats = "\n-------Stat-------\n"+data.Stats.replace(/, /g, "\n");
-
-            if(data.Warning)
-              stats = data.Errors + data.Warnings + stats;
-            else
-              stats = data.Errors + data.Warnings + stats;
-
-            send.lia("log", stats, errors, false);
-            send.lia("eval", "LIA: stop");
-        }
-    }).fail(function(data, err) {
-        send.lia("log", err, [], false);
-        send.lia("eval", "LIA: stop");
-    });
-
-"LIA: wait"
-</script>
-@end
-
-
-@Rextester.eval: @Rextester.__eval(6, ,"-Wall -std=gnu99 -O2 -o a.out source_file.c")
-
-@Rextester.eval_params: @Rextester.__eval(6, ,"@0")
-
-@Rextester.eval_input: @Rextester.__eval(6,`@input(1)`,"-Wall -std=gnu99 -O2 -o a.out source_file.c")
-
+import: https://raw.githubusercontent.com/LiaTemplates/Rextester/master/README.md
+        https://raw.githubusercontent.com/LiaTemplates/WebDev/master/README.md
+        https://github.com/LiaTemplates/AVR8js/main/README.md#10
+        https://raw.githubusercontent.com/LiaTemplates/NetSwarm-Simulator/master/README.md
 -->
 
-# II. Coding-Night
+[![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/ArduinoEinstieg/master/Course_00.md#1)
 
-**Evangelisches Gymnasium Doberlug-Kirchhain, 22. Februar 2019**
 
-Sebastian Zug, Technische Universität Bergakademie Freiberg
+# Mikrocontroller Einführung II
+
+**Eingebette Systeme**
+
+Prof. Dr. Sebastian Zug,
+Technische Universität Bergakademie Freiberg
 
 ------------------------------
 
 ![Welcome](images/WorkingDesk.jpg "Experiments")<!-- width="80%" -->
 
+<h2>Herzlich Willkommen!</h2>
+
 > Die interaktive Ansicht dieses Kurses ist unter folgendem [Link](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/ArduinoEinstieg/master/Course_01.md#1) verfügbar.
 
-Herzlich Willkommen!
+Der Quellcode der Materialien ist unter https://github.com/liaScript/ArduinoEinstieg/blob/master/Course_01.md zu finden.
+
 
 ## 1. Auffrischung
 
@@ -167,9 +65,8 @@ Herzlich Willkommen!
 {{5-6}}
 https://www.arduino.cc/
 
-{{5-6}}
-[^1] nach Wikipedia "Eingebettete Systeme"
 
+[^1]: nach Wikipedia "Eingebettete Systeme"
 
 ## 2. Arduino Hardware / Software
 
@@ -195,7 +92,54 @@ void loop() {
 
 ![Cheat-Sheet](images/Arduino-Cheat-Sheet_v0.1.png "Cheat-Sheet")<!-- width="100%" -->
 
-### 2a. Programmiervorgang
+
+### 2a. Fehler
+
+Ok, Ausgaben klappen, wie sieht es mit Eingaben aus?
+
+![Bildtext](images/ButtonSchema.png "Arduino IDE")<!-- width="80%" -->
+
+
+```c     ReadButton.c
+const int buttonPin = 2;     
+const int ledPin =  13;      
+
+// variables will change:
+int buttonState = 0;        
+int setup() {
+  pinMode(ledPin, INPUT);
+  pinMode(buttonPin, INPUT);
+}
+
+void loop() {
+  buttonState = digitalRead(buttonPin);
+
+  if (buttonState == HIGH) {
+    digitalWrite(ledPin, HIGH)
+  } else {
+    digitalWrite(buttonpin, LOW);
+  }
+}
+```
+
+Und wie gehen wir bei der Fehlersuche vor?
+
+1. Ruhe bewahren!
+2. Ruhe bewahren!
+3. Situation prüfen
+
+    + Syntaktischer Fehler (Dein Kompiler meckert!)
+
+    + Logischer Fehler (Du hast einen Denkfehler!)
+
+    + Hardwarefehler (Ups, draufgetreten!)
+
+4. Fehlermeldung aufmerksam lesen
+5. ggf. Hypothesen aufstellen und prüfen
+
+> **Aufgabe:** Debuggen Sie den obigen Quellcode!.
+
+### 2b. Programmiervorgang
 
 Und wie kommt das Ganze nun auf den Controller?
 
@@ -218,61 +162,9 @@ Nutzen Sie bei der Bedienung Short-Keys!
 | Ctrl + K         | Open sketch folder                   |
 
 
-### 2b.Weitere Beispiele
-
-Ok, Ausgaben klappen, wie sieht es mit Eingaben aus?
-
-![Bildtext](images/ButtonSchema.png "Arduino IDE")<!-- width="80%" -->
-
-
-```c     ReadButton.c
-// constants won't change. They're used here to set pin numbers:
-const int buttonPin = 2;     // the number of the pushbutton pin
-const int ledPin =  13;      // the number of the LED pin
-
-// variables will change:
-int buttonState = 0;         // variable for reading the pushbutton status
-
-int setup() {
-  pinMode(ledPin, INPUT);
-  pinMode(buttonPin, INPUT);
-}
-
-void loop() {
-  buttonState = digitalRead(buttonPin);
-
-  // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
-  if (buttonState == HIGH) {
-    digitalWrite(ledPin, HIGH)
-  } else {
-    digitalWrite(buttonPin, LOW);
-  }
-}
-```
-
-Und wie gehen wir bei der Fehlersuche vor?
-
-1. Ruhe bewahren!
-2. Ruhe bewahren!
-3. Situation prüfen
-
-    + Syntaktischer Fehler (Dein Kompiler meckert!)
-
-    + Logischer Fehler (Du hast einen Denkfehler!)
-
-    + Hardwarefehler (Ups, draufgetreten!)
-
-4. Fehlermeldung aufmerksam lesen
-5. ggf. Hypothesen aufstellen und prüfen
-
-> **Aufgabe:** Debuggen Sie den obigen Quellcode!.
-
 ## 3. Unsere "Schatzkiste"
 
 ![MangoLabsSet](images/MangoLabsSet.jpg "MangoLabsSet")<!-- width="80%" -->
-
-* Webseiten des Wiki des Herstellers mangolabs
-   [https://www.mangolabs.de/wiki/](https://www.mangolabs.de/wiki/)
 
 * Referenzübersicht Arduino
 
@@ -281,16 +173,52 @@ Und wie gehen wir bei der Fehlersuche vor?
     + englisch https://www.arduino.cc/reference/en/
 
 
-
 ### 3a. Joystick statt Button
 
-> **Aufgabe:** Recherchiere die Möglichkeiten des Joysticks, schreibe ein
-> Programm, dass dessen Ausgaben auf die serielle Schnittstelle ausgibt.
+> **Aufgabe:** Schließen Sie den Joystick entsprechend dem Schaltplan an
 
-![MangoLabsSet](images/Joystick.png "MangoLabsSet")<!-- width="30%" -->
+![MangoLabsSet](images/Joystick_with_Arduino.png "Beschaltung")<!-- width="80%" -->
+
+| Controller |  Joystick |
+| ------- | --------|
+| A0 |      VRx |
+| A1 |      VRy  |
+| D2 |      SW |
+| GND |   GND |
+| 5V |       +5V |
+
 
 {{1}}
-Es wird ernst! Wir müssen den Taster elektrisch mit dem Board verbinden. Anweisungen unter ... [https://www.mangolabs.de/portfolio-item/ps2-joystick/#hello-world](https://www.mangolabs.de/portfolio-item/ps2-joystick/#hello-world)
+```c                        LoesungJoystick.ino
+int xPin = A1;
+int yPin = A0;
+int buttonPin = 2;
+ 
+int xPosition = 0;
+int yPosition = 0;
+int buttonState = 0;
+ 
+void setup() {
+  Serial.begin(9600); 
+  pinMode(xPin, INPUT);
+  pinMode(yPin, INPUT);
+  pinMode(buttonPin, INPUT_PULLUP); 
+}
+ 
+void loop() {
+  xPosition = analogRead(xPin);
+  yPosition = analogRead(yPin);
+  buttonState = digitalRead(buttonPin);
+   
+  Serial.print("X: ");
+  Serial.print(xPosition);
+  Serial.print(" | Y: ");
+  Serial.print(yPosition);
+  Serial.print(" | Button: ");
+  Serial.println(buttonState);
+ 
+  delay(100); // add some delay between reads
+```
 
 
 {{2-4}}
@@ -300,8 +228,8 @@ Es wird ernst! Wir müssen den Taster elektrisch mit dem Board verbinden. Anweis
 
 {{3}}
 ```c                        LoesungJoystick.ino
-int xPin = A1;
-int yPin = A0;
+int yPin = A1;
+int xPin = A0;
 int buttonPin = 2;
 
 int xPosition = 0;
@@ -337,9 +265,17 @@ void loop() {
 > **Aufgabe:** Verbinden Sie das Display mit dem Board entsprechend dem
 > Beschaltungsplan.
 
-[https://www.mangolabs.de/portfolio-item/lcd-i2c-display-2x16/#getting-started](https://www.mangolabs.de/portfolio-item/lcd-i2c-display-2x16/#getting-started)
+![MangoLabsSet](images/LCD-Circuit-Diagram.png "Beschaltung")<!-- width="80%" -->
 
-Achtung für diese Aufgabe müssen Sie die zusätzliche Bibliothek _LiquidCrystal_PCF8574_
+| Arduino |   LCD  |
+|---|---|
+| A4 |      SDA  |
+| A5 |       SCL  |
+| GND | GND  |
+| 5V |       VCC  |
+
+
+Achtung für diese Aufgabe müssen Sie die zusätzliche Bibliothek `LiquidCrystal`
 installieren. Informieren Sie sich, wie dies umzusetzen ist "How to install a library for Arduino?".
 
 ```c                   Display.ino
@@ -356,9 +292,9 @@ void setup()
   lcd.setBacklight(255);
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("Gymnasium Doki");
+  lcd.print("Gymnasium Döbeln");
   lcd.setCursor(0, 1);
-  lcd.print("2. Coding Night");
+  lcd.print("2. Coding Event");
 }
 
 void loop()
@@ -371,9 +307,9 @@ style="width: 100%; max-width: 460px; display: block; margin-left: auto; margin-
     0                             15
     0 1 2 3 4 5 6 7 8 9 A B C D E F
    ╔═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╗
- 0 ║G│y│m│n│a│s│i│u│m│ │D│o│k│i│ │ ║
+ 0 ║G│y│m│n│a│s│i│u│m│ │D│ö│b│e│l│n║
    ╟─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─┼─╢
- 1 ║2│.│C│o│d│i│n│g│ │N│i│g│h│t│ │ ║
+ 1 ║2│.│C│o│d│i│n│g│ │E│v│e│n│t│ │ ║
    ╚═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╝
 ````
 
@@ -425,7 +361,7 @@ Welche Methoden stehen denn für das Display bereit?
 {{2}}
 ```c
 lcd.setCursor(5, 1);
-lcd.print("Gymnasium Doki");
+lcd.print("Gymnasium Döbeln");
 ```
 
 {{2}}
@@ -517,7 +453,7 @@ style="width: 100%; max-width: 460px; display: block; margin-left: auto; margin-
 ````
 
 {{3}}
-> **Aufgabe:** Lassen Sie auf dem Cursor die Namen der Kursteilnehmer durchlaufen.
+> **Aufgabe:** Bauen Sie eine Laufschrift mit den Namen der Kursteilnehmer. Wenn das Ende erreicht ist, wird die Richtung umgekehrt.
 
 {{3}}
 ```c                   ShowNames.ino
@@ -527,9 +463,8 @@ style="width: 100%; max-width: 460px; display: block; margin-left: auto; margin-
 int lcdi2c = 0x27;
 LiquidCrystal_PCF8574 lcd(lcdi2c);
 
-String names [] = {"Anja", "Alexander",
-                   "Adrian", "Alfons",
-                   "Alois", "Ariadne"};
+String names = "Anja Emil";
+
 int number = 5;
 
 void setup()
@@ -540,9 +475,7 @@ void setup()
 
 void loop()
 {
-  for (int i=1; i< number; i++){
-    // names[i]; Zugriff auf die Namen
-  }
+  ...
 }
 ```
 
@@ -561,7 +494,7 @@ int lcdi2c = 0x27;
 LiquidCrystal_PCF8574 lcd(lcdi2c);
 
 int xPin = A1;
-int yPin = A0;
+int xPin = A0;
 int buttonPin = 2;
 
 int xPosition = 0;
@@ -594,4 +527,4 @@ void loop() {
 ```
 
 {{2}}
-> **Aufgabe:** Implementieren Sie eine Anwnedung, die es erlaubt, sich innerhalb der Liste von Namen zu bewegen.
+> **Aufgabe:** Implementieren Sie eine Anwendung, die es erlaubt, sich innerhalb der Liste von Namen zu bewegen.
