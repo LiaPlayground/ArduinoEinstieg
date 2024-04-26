@@ -26,8 +26,6 @@ Technische Universität Bergakademie Freiberg
 
 Der Quellcode der Materialien ist unter https://github.com/liaScript/ArduinoEinstieg/blob/master/Course_02b.md zu finden.
 
-*******************************************************************************
-
 ## Einstiegs-/Auffrischungsübung
 
 > **Aufgabe:** Ihr Programmierer hat Ihnen einen Code geschrieben, der das *SOS* Morsesignal über die
