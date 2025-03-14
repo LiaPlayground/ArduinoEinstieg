@@ -72,6 +72,8 @@ Phase 2: Große Probleme zerlegen - Wir starten aus der Vogelperspektive.
 
 ![partner_map](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2U2c29yNzUyem4xdXNsZGR4Mjc0Z3FiZTl4OGgzY2Z3a29oZTBsMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/y7iEfV8xgCLpp8iGe9/giphy.gif)
 
+<!-- class="highlight" -->
+> __Frage:__ Womit starten Sie?
 
 ## 1. Versuch 
 
@@ -116,8 +118,6 @@ alvik.stop()
 
 <!-- class="highlight" -->
 > __Frage:__ Welche Mängel sehen Sie bei diesem Programm?
-
-![](https://www.datocms-assets.com/32427/1715680599-alvik-callouts_1522x1080-white.jpg?auto=format&max-w=980)
 
 ## 2. Versuch: Systematische Entwicklung
 
@@ -188,7 +188,7 @@ erfassung       | | |        v v v      Aktuator
                   |           v      
             .-----------------------.
             | Umgebung              |
-            .-----------------------.                                                                                .
+            .-----------------------.                                                                                                 .
 ```
 
 ### 2.3 Feinentwurf
@@ -196,6 +196,9 @@ erfassung       | | |        v v v      Aktuator
 > Wie können die einzelnen Komponenten implementiert werden?
 
 ![](images/vacuum_cleaner_flow_chart.png)
+
+<!-- class="highlight" -->
+> __Frage:__ Welchen Vorteil haben wir von einer solchen grafischen Darstellung?
 
 ### 2.4 Modulimplementation
 
@@ -234,21 +237,21 @@ def trajectory_execution():
 
 {{0-3}}
 <!-- class="highlight" -->
-> __Achtung:__ Womit haben wir uns heute überhaupt nicht beschäftigt? Die Hardware blieb weitgehend außen vor.
+> __Achtung:__ Womit haben wir uns heute überhaupt nicht beschäftigt? Die Hardware blieb weitgehend außen vor und wir haben mit keinem Wort über Datenstrukturen oder die eigentlichen Algorithmen gesprochen!
 
 
                         {{1-3}}
 *********************************************************
 
-> Erkenntnis 1: _Gib mir eine halbe Stunde und ich schreibe Dir den Code ..._ gehört der Vergangenheit an.
+> __Erkenntnis 1:__ _Gib mir eine halbe Stunde und ich schreibe Dir den Code ..._ gehört der Vergangenheit an.
 
-> Erkenntnis 2: Informatik ist mehr als nur "Programmieren".
+> __Erkenntnis 2:__ Informatik ist mehr als nur "Programmieren".
 
-> Erkenntnis 3: Systematische Entwicklung ist der Schlüssel zum Erfolg.
+> __Erkenntnis 3:__ Erfolgreiche (Robotik-)Entwicklerinnen und Entwickler müssen die Einsatzbedingungen vorausahnen.
 
 *********************************************************
 
 </div>
 
 {{2-3}}
-![partner_map](./images/WorkingDesk.jpg)<!-- style="width: 50%; float: right" -->
+![partner_map](./images/URL_StrukturierteRoboterEntwicklung.png)<!-- style="width: 50%; float: right" -->
